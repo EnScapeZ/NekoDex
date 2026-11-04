@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public partial class BibliothekView
 {
@@ -106,8 +106,8 @@ public partial class BibliothekView
         {
             System.Windows.MessageBox.Show(
                 System.Windows.Window.GetWindow(this),
-                "Bitte zuerst Titel auswählen.",
-                "Kategorie zuweisen",
+                LanguageManager.Instance.Get("Dlg_PickTitles"),
+                LanguageManager.Instance.Get("Dlg_AssignTitle"),
                 System.Windows.MessageBoxButton.OK,
                 System.Windows.MessageBoxImage.Information);
             return;
@@ -135,7 +135,11 @@ public partial class BibliothekView
 
     private void AddCategory_Click(object sender, RoutedEventArgs e)
     {
-        var name = PromptText("Neue Kategorie", "Name der Kategorie", "Anlegen", null);
+        var name = PromptText(
+            LanguageManager.Instance.Get("Lib_NewCategory"),
+            LanguageManager.Instance.Get("Dlg_CategoryName"),
+            LanguageManager.Instance.Get("Dlg_Create"),
+            null);
         if (string.IsNullOrWhiteSpace(name))
             return;
         CategoryCreated?.Invoke(this, name.Trim());
@@ -145,7 +149,11 @@ public partial class BibliothekView
     {
         if (ChipFromMenu(sender) is not { Filter: { } name })
             return;
-        var next = PromptText("Kategorie umbenennen", "Neuer Name", "Speichern", name);
+        var next = PromptText(
+            LanguageManager.Instance.Get("Dlg_RenameTitle"),
+            LanguageManager.Instance.Get("Dlg_NewName"),
+            LanguageManager.Instance.Get("Dlg_Save"),
+            name);
         if (string.IsNullOrWhiteSpace(next) || string.Equals(next.Trim(), name, StringComparison.OrdinalIgnoreCase))
             return;
         CategoryRenamed?.Invoke(this, new LibraryCategoryRename(name, next.Trim()));
@@ -157,8 +165,8 @@ public partial class BibliothekView
             return;
         var answer = MessageBox.Show(
             Window.GetWindow(this),
-            $"Kategorie „{name}“ löschen?\n\nDie Zuordnungen werden entfernt. Die Titel bleiben in der Bibliothek.",
-            "Kategorie löschen",
+            LanguageManager.Instance.Get("Dlg_DeleteCategoryBody", name),
+            LanguageManager.Instance.Get("Dlg_DeleteCategoryTitle"),
             MessageBoxButton.OKCancel,
             MessageBoxImage.Warning);
         if (answer != MessageBoxResult.OK)
@@ -193,7 +201,7 @@ public partial class BibliothekView
 
         if (assign.Items.Count > 0)
             assign.Items.Add(new Separator());
-        var create = new MenuItem { Header = "Neue Kategorie…", Tag = "new" };
+        var create = new MenuItem { Header = LanguageManager.Instance.Get("Lib_NewCategoryMenu"), Tag = "new" };
         create.Click += AssignOne_Click;
         assign.Items.Add(create);
     }
@@ -259,7 +267,7 @@ public partial class BibliothekView
         };
         var cancel = new Button
         {
-            Content = "Abbrechen",
+            Content = LanguageManager.Instance.Get("Web_Cancel"),
             Width = 110,
             Height = 32,
             IsCancel = true,
@@ -330,8 +338,8 @@ public partial class BibliothekView
     {
         var answer = System.Windows.MessageBox.Show(
             System.Windows.Window.GetWindow(this),
-            $"Möchtest du {count} Titel wirklich löschen?\n\nJa entfernt auch die heruntergeladenen Dateien. Nein löscht nur den Bibliothekseintrag.",
-            "Titel löschen",
+            LanguageManager.Instance.Get("Dlg_DeleteTitlesBody", count),
+            LanguageManager.Instance.Get("Dlg_DeleteTitlesTitle"),
             System.Windows.MessageBoxButton.YesNoCancel,
             System.Windows.MessageBoxImage.Warning);
         return answer switch
@@ -359,7 +367,7 @@ public partial class BibliothekView
         };
         var ok = new System.Windows.Controls.Button
         {
-            Content = "Zuweisen",
+            Content = LanguageManager.Instance.Get("Dlg_Assign"),
             Width = 110,
             Height = 32,
             IsDefault = true,
@@ -367,7 +375,7 @@ public partial class BibliothekView
         };
         var cancel = new System.Windows.Controls.Button
         {
-            Content = "Abbrechen",
+            Content = LanguageManager.Instance.Get("Web_Cancel"),
             Width = 110,
             Height = 32,
             IsCancel = true,
@@ -394,7 +402,7 @@ public partial class BibliothekView
         var root = new System.Windows.Controls.StackPanel();
         root.Children.Add(new System.Windows.Controls.TextBlock
         {
-            Text = "Name der Sammlung",
+            Text = LanguageManager.Instance.Get("Dlg_CollectionName"),
             Margin = new System.Windows.Thickness(16, 16, 16, 0),
             Foreground = System.Windows.Media.Brushes.White,
         });
@@ -403,7 +411,7 @@ public partial class BibliothekView
 
         dialog = new System.Windows.Window
         {
-            Title = "Kategorie zuweisen",
+            Title = LanguageManager.Instance.Get("Dlg_AssignTitle"),
             Content = root,
             Width = 380,
             SizeToContent = System.Windows.SizeToContent.Height,

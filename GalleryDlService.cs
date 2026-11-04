@@ -2,7 +2,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Fortschritt beim Laden von gallery-dl.exe.</summary>
 public readonly record struct GalleryDlDownloadUpdate(long Received, long Total, string Status);
@@ -20,11 +20,7 @@ public static class GalleryDlService
         "\"tag_name\"\\s*:\\s*\"(?<tag>v[^\"]+)\"",
         RegexOptions.Compiled);
 
-    public static string BundledPath { get; } = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "MangaLibraryApp",
-        "tools",
-        "gallery-dl.exe");
+    public static string BundledPath { get; } = Path.Combine(AppPaths.DataDirectory, "tools", "gallery-dl.exe");
 
     /// <summary><c>./tools/gallery-dl.exe</c> neben der Programmdatei.</summary>
     public static string ToolsPath

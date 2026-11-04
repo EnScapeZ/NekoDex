@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ukE6G20it+0=",
+  "dgSpecHash": "fN1qMWytyHs=",
   "success": true,
-  "projectFilePath": "G:\\Scraper\\MangaLibraryApp\\MangaLibraryApp.csproj",
+  "projectFilePath": "G:\\Scraper\\MangaLibraryApp\\NekoDex.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EnScapeZ\\.nuget\\packages\\microsoft.data.sqlite\\10.0.12\\microsoft.data.sqlite.10.0.12.nupkg.sha512",
     "C:\\Users\\EnScapeZ\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.12\\microsoft.data.sqlite.core.10.0.12.nupkg.sha512",
@@ -27,9 +27,9 @@
       "code": "NU1510",
       "level": "Warning",
       "message": "PackageReference System.IO.Compression wird nicht gekürzt. Dieses Paket ist automatisch verfügbar und muss nicht explizit referenziert werden. Entfernen Sie das PackageReference-Element.",
-      "projectPath": "G:\\Scraper\\MangaLibraryApp\\MangaLibraryApp.csproj",
+      "projectPath": "G:\\Scraper\\MangaLibraryApp\\NekoDex.csproj",
       "warningLevel": 1,
-      "filePath": "G:\\Scraper\\MangaLibraryApp\\MangaLibraryApp.csproj",
+      "filePath": "G:\\Scraper\\MangaLibraryApp\\NekoDex.csproj",
       "libraryId": "System.IO.Compression",
       "targetGraphs": [
         "net10.0-windows7.0"

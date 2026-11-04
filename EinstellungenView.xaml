@@ -1,18 +1,19 @@
-<UserControl x:Class="MangaLibraryApp.EinstellungenView"
+<UserControl x:Class="NekoDex.EinstellungenView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:lex="clr-namespace:NekoDex">
     <Border Style="{StaticResource Card}">
         <StackPanel>
-            <TextBlock Text="BLACKLISTED TAGS" Style="{StaticResource Overline}"/>
+            <TextBlock Text="{lex:Loc Set_Blacklist}" Style="{StaticResource Overline}"/>
             <TextBlock Margin="2,8,0,0" FontSize="12" Foreground="{StaticResource DimBrush}" TextWrapping="Wrap"
-                       Text="Diese Tags schließt die Websuche aus. nhentai und E-Hentai bekommen sie als -tag, Hitomi filtert die Treffer."/>
+                       Text="{lex:Loc Set_BlacklistHint}"/>
             <Grid Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="TagBox" Style="{StaticResource HudTextBox}" KeyDown="TagBox_KeyDown"/>
-                <Button Grid.Column="1" Content="Hinzufügen" Style="{StaticResource HudButton}" Margin="8,0,0,0"
+                <Button Grid.Column="1" Content="{lex:Loc Set_Add}" Style="{StaticResource HudButton}" Margin="8,0,0,0"
                         Click="Add_Click"/>
             </Grid>
             <ItemsControl x:Name="TagList" Margin="0,12,0,0">
@@ -25,7 +26,7 @@
                     <DataTemplate>
                         <Button Content="{Binding}" Margin="0,0,6,6" Height="28" Padding="10,0"
                                 Style="{StaticResource HudButton}" Click="Remove_Click"
-                                ToolTip="Tag von der Blacklist entfernen"/>
+                                ToolTip="{lex:Loc Set_RemoveBlacklist}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

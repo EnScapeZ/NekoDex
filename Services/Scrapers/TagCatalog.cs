@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using TagDownloadProgress = MangaLibraryApp.TagDownloadProgress;
-using TagNames = MangaLibraryApp.TagNames;
-using WebSearchViewModel = MangaLibraryApp.WebSearchViewModel;
+using TagDownloadProgress = NekoDex.TagDownloadProgress;
+using TagNames = NekoDex.TagNames;
+using WebSearchViewModel = NekoDex.WebSearchViewModel;
 
 namespace NekoDex.Services.Scrapers
 {

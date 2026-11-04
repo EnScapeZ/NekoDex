@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public enum LibrarySort
 {
@@ -22,8 +22,19 @@ public sealed class LibraryViewModel : ObservableObject
 
     public LibraryViewModel()
     {
-        Categories.Add(new CategoryChip("Alle Kategorien", null) { IsSelected = true });
+        Categories.Add(new CategoryChip(LanguageManager.Instance.Get("Lib_AllCategories"), null) { IsSelected = true });
         DeleteCommand = new RelayCommand(() => DeleteInvoked?.Invoke(this, EventArgs.Empty), () => SelectedCount > 0);
+        LanguageManager.Instance.Changed += RefreshLanguage;
+    }
+
+    private void RefreshLanguage()
+    {
+        var all = Categories.FirstOrDefault(chip => chip.Filter is null);
+        if (all is not null)
+            all.Label = LanguageManager.Instance.Get("Lib_AllCategories");
+        OnPropertyChanged(nameof(SelectionModeLabel));
+        foreach (var item in Items)
+            item.RefreshLanguage();
     }
 
     public ObservableCollection<LocalManga> Items { get; } = new();
@@ -80,7 +91,9 @@ public sealed class LibraryViewModel : ObservableObject
         }
     }
 
-    public string SelectionModeLabel => _selectionMode ? "Auswahl beenden" : "Mehrfachauswahl";
+    public string SelectionModeLabel => _selectionMode
+        ? LanguageManager.Instance.Get("Lib_MultiOff")
+        : LanguageManager.Instance.Get("Lib_MultiOn");
 
     public int SelectedCount => Items.Count(item => item.IsSelected);
 
@@ -206,14 +219,19 @@ public sealed class LibraryViewModel : ObservableObject
 public sealed class CategoryChip : ObservableObject
 {
     private bool _isSelected;
+    private string _label;
 
     public CategoryChip(string label, string? filter)
     {
-        Label = label;
+        _label = label;
         Filter = filter;
     }
 
-    public string Label { get; }
+    public string Label
+    {
+        get => _label;
+        set => SetField(ref _label, value);
+    }
 
     /// <summary><c>null</c> hebt den Kategoriefilter auf.</summary>
     public string? Filter { get; }

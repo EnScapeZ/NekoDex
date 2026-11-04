@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>
 /// nhentai-Tag-Typen wie in NClientV3 (<c>TagType</c>): parody, character, tag, artist, group, language, category.

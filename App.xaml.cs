@@ -7,15 +7,13 @@ using System.Windows.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using NekoDex.Services.Scrapers;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public partial class App : Application
 {
     private const int AttachParentProcess = -1;
 
-    public static string LogDirectory { get; } = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "MangaLibraryApp");
+    public static string LogDirectory { get; } = AppPaths.DataDirectory;
 
     public static string LogFilePath { get; } = Path.Combine(LogDirectory, "startup.log");
 
@@ -118,7 +116,7 @@ public partial class App : Application
         {
             MessageBox.Show(
                 title + "\n\n" + text + "\n\nProtokoll: " + LogFilePath,
-                "Manga Library",
+                "NekoDex",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
         }

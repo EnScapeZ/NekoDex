@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shell;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Fortschritt beim Laden einer Seite: empfangene Bytes und – falls der Server sie nennt – die Gesamtgröße.</summary>
 internal readonly record struct ReadProgress(long Received, long? Total);
@@ -284,8 +284,24 @@ public partial class ReaderWindow : Window
         TitleText.Text = title;
     }
 
+    private void RefreshReaderLanguage()
+    {
+        if (!IsLoaded)
+            return;
+        FitButton.ToolTip = _fit switch
+        {
+            FitMode.Page => LanguageManager.Instance.Get("Read_FitPage"),
+            FitMode.Width => LanguageManager.Instance.Get("Read_FitWidth"),
+            _ => LanguageManager.Instance.Get("Read_FitOriginal"),
+        };
+        DirectionButton.ToolTip = _rightToLeft
+            ? LanguageManager.Instance.Get("Read_Rtl")
+            : LanguageManager.Instance.Get("Read_Ltr");
+    }
+
     private async void Window_Loaded(object sender, RoutedEventArgs e)
     {
+        LanguageManager.Instance.Changed += RefreshReaderLanguage;
         Focus();
         await RunStartAsync();
     }
@@ -310,7 +326,7 @@ public partial class ReaderWindow : Window
             if (_pages.Count == 0)
                 ShowError(ex.Message, canRetry: _startListing is null);
             else
-                SetStatus("Liste unvollständig: " + ex.Message);
+                SetStatus(LanguageManager.Instance.Get("Read_ListPartial", ex.Message));
         }
         finally
         {
@@ -388,7 +404,7 @@ public partial class ReaderWindow : Window
     private async Task ListOnlineAsync(GalleryDlCommand command, string url, string? extraArguments, string? workingDirectory, string referer)
     {
         ShowLoading("gallery-dl sucht die Seiten …");
-        SetStatus("Liste wird geladen …");
+        SetStatus(LanguageManager.Instance.Get("Read_LoadingList"));
 
         await foreach (var page in GalleryDl.ListPagesAsync(command, url, extraArguments, workingDirectory,
                            warning => _warning = warning, _cts.Token))
@@ -417,9 +433,9 @@ public partial class ReaderWindow : Window
         UpdatePageUi();
 
         if (_warning is not null)
-            SetStatus("Liste unvollständig: " + _warning);
+            SetStatus(LanguageManager.Instance.Get("Read_ListPartial", _warning));
         else
-            SetStatus($"{_pages.Count} Seiten");
+            SetStatus(LanguageManager.Instance.Get("Lib_PageMany", _pages.Count));
 
         // Wurde auf eine Seite gewartet, die es nicht gibt: zurück auf die letzte.
         if (_waitingForNext && _index + 1 >= _pages.Count)
@@ -932,9 +948,9 @@ public partial class ReaderWindow : Window
 
         FitButton.ToolTip = _fit switch
         {
-            FitMode.Page => "Ansicht: ganze Seite (F)",
-            FitMode.Width => "Ansicht: Fensterbreite, nach unten scrollen (F)",
-            _ => "Ansicht: Originalgröße (F)",
+            FitMode.Page => LanguageManager.Instance.Get("Read_FitPage"),
+            FitMode.Width => LanguageManager.Instance.Get("Read_FitWidth"),
+            _ => LanguageManager.Instance.Get("Read_FitOriginal"),
         };
         FitButton.Content = _fit switch
         {
@@ -989,9 +1005,13 @@ public partial class ReaderWindow : Window
     private void ToggleDirection()
     {
         _rightToLeft = !_rightToLeft;
-        DirectionButton.ToolTip = _rightToLeft ? "Leserichtung: rechts → links, Manga (R)" : "Leserichtung: links → rechts (R)";
+        DirectionButton.ToolTip = _rightToLeft
+            ? LanguageManager.Instance.Get("Read_Rtl")
+            : LanguageManager.Instance.Get("Read_Ltr");
         DirectionButton.Content = _rightToLeft ? "\uE7B2" : "\uE7B3";
-        SetStatus(_rightToLeft ? "Leserichtung: rechts → links" : "Leserichtung: links → rechts");
+        SetStatus(_rightToLeft
+            ? LanguageManager.Instance.Get("Read_RtlStatus")
+            : LanguageManager.Instance.Get("Read_LtrStatus"));
     }
 
     private void Fullscreen_Click(object sender, RoutedEventArgs e) => ToggleFullscreen();
@@ -1031,7 +1051,7 @@ public partial class ReaderWindow : Window
         }
         catch (Exception ex)
         {
-            SetStatus("Browser konnte nicht geöffnet werden: " + ex.Message);
+            SetStatus(LanguageManager.Instance.Get("Read_BrowserFailed", ex.Message));
         }
     }
 

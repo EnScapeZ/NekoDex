@@ -4,16 +4,16 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using TagDownloadProgress = MangaLibraryApp.TagDownloadProgress;
-using TagNames = MangaLibraryApp.TagNames;
-using TagQuery = MangaLibraryApp.TagQuery;
-using WebSearchViewModel = MangaLibraryApp.WebSearchViewModel;
+using TagDownloadProgress = NekoDex.TagDownloadProgress;
+using TagNames = NekoDex.TagNames;
+using TagQuery = NekoDex.TagQuery;
+using WebSearchViewModel = NekoDex.WebSearchViewModel;
 
 namespace NekoDex.Services.Scrapers
 {
     /// <summary>
     /// Gemeinsame E-Hentai-Abfrage (<c>artist:</c>, <c>parody:</c>, <c>character:</c>, <c>tag:</c> über
-    /// <see cref="MangaLibraryApp.EHentaiQueryBuilder"/>). Jede Quelle sucht auf ihrer eigenen Domain.
+    /// <see cref="NekoDex.EHentaiQueryBuilder"/>). Jede Quelle sucht auf ihrer eigenen Domain.
     /// </summary>
     public abstract class EHentaiStyleProvider : CatalogScraperProvider, ITagCatalogSource, ISearchPageHint
     {
@@ -30,7 +30,7 @@ namespace NekoDex.Services.Scrapers
         public abstract override Task<IEnumerable<GalleryResult>> SearchAsync(
             string query,
             int page,
-            MangaLibraryApp.AppSettings settings,
+            NekoDex.AppSettings settings,
             CancellationToken cancellationToken = default);
 
         public abstract Task<IReadOnlyList<CatalogTag>> GetOnlineTagsAsync(
@@ -62,7 +62,7 @@ namespace NekoDex.Services.Scrapers
             var terms = new List<EhTerm>();
             foreach (var token in tokens)
             {
-                var normalized = MangaLibraryApp.EHentaiQueryBuilder.Normalize(token);
+                var normalized = NekoDex.EHentaiQueryBuilder.Normalize(token);
                 if (normalized.Length == 0)
                     continue;
                 var body = normalized.EndsWith('$') ? normalized[..^1] : normalized;
@@ -117,7 +117,7 @@ namespace NekoDex.Services.Scrapers
         public override async Task<IEnumerable<GalleryResult>> SearchAsync(
             string query,
             int page,
-            MangaLibraryApp.AppSettings settings,
+            NekoDex.AppSettings settings,
             CancellationToken cancellationToken = default)
         {
             _ = settings;
@@ -343,7 +343,7 @@ namespace NekoDex.Services.Scrapers
         public override async Task<IEnumerable<GalleryResult>> SearchAsync(
             string query,
             int page,
-            MangaLibraryApp.AppSettings settings,
+            NekoDex.AppSettings settings,
             CancellationToken cancellationToken = default)
         {
             _ = settings;
@@ -647,7 +647,7 @@ namespace NekoDex.Services.Scrapers
         public override async Task<IEnumerable<GalleryResult>> SearchAsync(
             string query,
             int page,
-            MangaLibraryApp.AppSettings settings,
+            NekoDex.AppSettings settings,
             CancellationToken cancellationToken = default)
         {
             _ = settings;

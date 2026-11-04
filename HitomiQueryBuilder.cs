@@ -1,4 +1,4 @@
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>
 /// Hitomi-Suchbegriffe: ohne Bereich wird <c>tag:</c> ergänzt, Namen mit Leerzeichen stehen in Anführungszeichen.

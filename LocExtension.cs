@@ -1,7 +1,7 @@
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Laufzeit-Text: <c>{lex:Loc Nav_Library}</c>. Wechselt mit <see cref="LanguageManager.SetCulture"/>.</summary>
 [MarkupExtensionReturnType(typeof(string))]

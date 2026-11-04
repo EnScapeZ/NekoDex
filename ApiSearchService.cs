@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Ein Treffer der direkten Web-API-Suche (ohne gallery-dl beim Raster).</summary>
 public sealed record OnlineSearchResult(
@@ -25,7 +25,7 @@ public sealed record OnlineSearchResult(
 /// <summary>
 /// Dialekt der bestehenden Tag-Normalisierung. Neue Plattformen stehen in <see cref="NekoDex.Core.Enums.SourceProvider"/>.
 /// </summary>
-public enum SourceProvider
+public enum TagDialect
 {
     Nhentai,
     Ehentai,
@@ -58,25 +58,25 @@ public static class TagQuery
         "schoolgirl uniform", "blowjob", "paizuri", "ahegao", "femdom",
     };
 
-    public static SourceProvider FromSite(string? site) => site switch
+    public static TagDialect FromSite(string? site) => site switch
     {
-        "ehentai" or "exhentai" => SourceProvider.Ehentai,
-        "hitomi" => SourceProvider.Hitomi,
-        "nhentai" => SourceProvider.Nhentai,
-        _ => SourceProvider.Other,
+        "ehentai" or "exhentai" => TagDialect.Ehentai,
+        "hitomi" => TagDialect.Hitomi,
+        "nhentai" => TagDialect.Nhentai,
+        _ => TagDialect.Other,
     };
 
     /// <summary>Normalisiert einen Tag, bevor er an die API oder den Nozomi-Index geht.</summary>
-    public static string NormalizeTag(string rawTag, SourceProvider source)
+    public static string NormalizeTag(string rawTag, TagDialect source)
     {
         if (string.IsNullOrWhiteSpace(rawTag))
             return string.Empty;
 
         return source switch
         {
-            SourceProvider.Ehentai => NormalizeEhentai(rawTag),
-            SourceProvider.Hitomi => NormalizeHitomi(rawTag),
-            SourceProvider.Nhentai => NormalizeNhentai(rawTag),
+            TagDialect.Ehentai => NormalizeEhentai(rawTag),
+            TagDialect.Hitomi => NormalizeHitomi(rawTag),
+            TagDialect.Nhentai => NormalizeNhentai(rawTag),
             _ => TagNames.Normalize(rawTag),
         };
     }
@@ -778,6 +778,7 @@ internal sealed class ApiSearchService : IDisposable
         };
 
         ApiSearchException? lastBlocked = null;
+        var answered = false;
         foreach (var (url, name) in endpoints)
         {
             string json;
@@ -793,6 +794,7 @@ internal sealed class ApiSearchService : IDisposable
             }
 
             var (hits, totalPages, total) = ParseNhentaiSearch(json, name);
+            answered = true;
             if (hits.Count > 0)
             {
                 RememberPage(page, hits.Count, totalPages, total);
@@ -803,9 +805,9 @@ internal sealed class ApiSearchService : IDisposable
             Log?.Invoke("nhentai " + name + " Seite " + page + " lieferte keine Galerien.");
         }
 
-        if (page > 1)
+        if (page > 1 || answered)
         {
-            RememberPage(page, 0, LastTotalPages, LastTotal);
+            RememberPage(page, 0, page > 1 ? LastTotalPages : 0, page > 1 ? LastTotal : 0);
             LastHasMore = false;
             return Array.Empty<OnlineSearchResult>();
         }
@@ -865,14 +867,10 @@ internal sealed class ApiSearchService : IDisposable
             if (LooksLikeCloudflare(html))
                 throw new ApiSearchException("E-Hentai blockiert die Anfrage (Cloudflare). " + BlockedHint, blocked: true);
 
-            if (page > 1)
-            {
-                RememberPage(page, 0, LastTotalPages, LastTotal);
-                LastHasMore = false;
-                return Array.Empty<OnlineSearchResult>();
-            }
-
-            throw new ApiSearchException("Die E-Hentai-Suche lieferte keine Galerie-IDs.");
+            RememberPage(page, 0, LastTotalPages, LastTotal);
+            LastHasMore = false;
+            Log?.Invoke("E-Hentai Seite " + page + " ohne Treffer.");
+            return Array.Empty<OnlineSearchResult>();
         }
 
         var hits = await FetchEhentaiGdataAsync(pairs, ct);
@@ -1445,7 +1443,7 @@ internal sealed class ApiSearchService : IDisposable
             + (named.Count > 0 || cookieFile is not null ? "  ·  mit Session-Cookies" : "  ·  ohne Session-Cookies"));
         Notice?.Invoke(SourceCatalog.DisplayName(site) + "-Fallback Seite " + page + ": gallery-dl liest " + url);
 
-        var json = await MangaLibraryApp.GalleryDl.DumpJsonAsync(
+        var json = await NekoDex.GalleryDl.DumpJsonAsync(
             GalleryDl, url, ExtraArgs, WorkingDirectory, ct, cookieFile, page.ToString(CultureInfo.InvariantCulture),
             site == "hitomi" ? HitomiGalleryDlFlags() : null, named);
         var hits = ParseGalleryDlDump(json, site);
@@ -2380,7 +2378,7 @@ internal sealed class ApiSearchService : IDisposable
                 var host = HttpCookieImport.NormalizeDomain(cookie.Domain);
                 if (!CookieHostMatches(host, domain))
                     continue;
-                if (!MangaLibraryApp.GalleryDl.SessionCookieNames.Contains(cookie.Name, StringComparer.OrdinalIgnoreCase))
+                if (!NekoDex.GalleryDl.SessionCookieNames.Contains(cookie.Name, StringComparer.OrdinalIgnoreCase))
                     continue;
                 if (string.IsNullOrWhiteSpace(cookie.Value))
                     continue;
@@ -2430,7 +2428,7 @@ internal sealed class ApiSearchService : IDisposable
             if (lines.Count <= 1)
                 return null;
 
-            var directory = Path.Combine(Path.GetTempPath(), "MangaLibraryApp");
+            var directory = Path.Combine(Path.GetTempPath(), "NekoDex");
             Directory.CreateDirectory(directory);
             var path = Path.Combine(directory, "cookies." + domain.Replace('.', '_') + ".txt");
             File.WriteAllLines(path, lines);

@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Wie gallery-dl aufgerufen wird: Programm, vorangestellte Argumente (z. B. „-m gallery_dl“ bei Python) und eine Beschreibung.</summary>
 internal sealed record GalleryDlCommand(string FileName, string[] PrefixArgs, string Description);

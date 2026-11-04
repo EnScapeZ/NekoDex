@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Media;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>
 /// Hält Cover im Arbeitsspeicher und, bei Remote-URLs, zusätzlich auf der Platte,
@@ -20,10 +20,7 @@ internal static class ImageCacheService
     private static readonly LinkedList<CacheEntry> Order = new();
     private static readonly Dictionary<string, Task<ImageSource?>> Pending = new(StringComparer.OrdinalIgnoreCase);
 
-    private static readonly string DiskDirectory = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "MangaLibraryApp",
-        "image-cache");
+    private static readonly string DiskDirectory = Path.Combine(AppPaths.DataDirectory, "image-cache");
 
     public static bool TryGet(string? key, out ImageSource? image)
     {

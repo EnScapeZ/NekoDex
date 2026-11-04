@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
+using AppSettings = NekoDex.AppSettings;
 
 namespace NekoDex.Services.Scrapers
 {

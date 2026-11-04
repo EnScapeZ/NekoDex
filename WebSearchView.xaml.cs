@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public partial class WebSearchView : UserControl
 {

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Nav_Library" xml:space="preserve"><value>Библиотека</value></data>
+  <data name="Nav_Favorites" xml:space="preserve"><value>Избранное</value></data>
+  <data name="Nav_Downloads" xml:space="preserve"><value>Загрузки</value></data>
+  <data name="Nav_WebSearch" xml:space="preserve"><value>Веб-поиск</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="Web_Search" xml:space="preserve"><value>Искать в сети</value></data>
+  <data name="Web_Cancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="Web_Target" xml:space="preserve"><value>ЦЕЛЕВОЙ САЙТ</value></data>
+  <data name="Web_Cloudflare" xml:space="preserve"><value>Cloudflare блокирует запрос (HTTP 403 / gallery-dl код 2). Сеанс читается из выбранного браузера. Если не получится, ненадолго закройте браузер.</value></data>
+  <data name="Web_CookieLocked" xml:space="preserve"><value>Доступ к cookie браузера заблокирован. Ненадолго закройте браузер, чтобы NekoDex мог прочитать сеанс.</value></data>
+  <data name="Web_Roadmap" xml:space="preserve"><value>{0} запланирован, но ещё недоступен.</value></data>
+  <data name="Download_New" xml:space="preserve"><value>НОВАЯ ЗАГРУЗКА</value></data>
+  <data name="Download_Paste" xml:space="preserve"><value>Вставить</value></data>
+  <data name="Download_ReadOnline" xml:space="preserve"><value>Читать онлайн</value></data>
+  <data name="Download_ReadOnlineTip" xml:space="preserve"><value>Открывает первый адрес в читалке без сохранения галереи (gallery-dl -g).</value></data>
+  <data name="Download_Start" xml:space="preserve"><value>Начать загрузку</value></data>
+  <data name="Download_Queue" xml:space="preserve"><value>ОЧЕРЕДЬ</value></data>
+  <data name="Download_Empty" xml:space="preserve"><value>Нет загрузок. Добавьте URL-адрес выше.</value></data>
+  <data name="Download_Log" xml:space="preserve"><value>ЖУРНАЛ</value></data>
+  <data name="Download_Queued" xml:space="preserve"><value>В очереди</value></data>
+  <data name="Download_Connecting" xml:space="preserve"><value>Подключение и чтение метаданных…</value></data>
+  <data name="Download_Loaded" xml:space="preserve"><value>{0} загружено</value></data>
+  <data name="Download_Skipped" xml:space="preserve"><value>{0} пропущено</value></data>
+  <data name="Download_Progress" xml:space="preserve"><value>{0}/{1}{2}</value></data>
+  <data name="Download_FailedBadge" xml:space="preserve"><value>Ошибка</value></data>
+  <data name="Download_Retry" xml:space="preserve"><value>Повторить</value></data>
+  <data name="Download_CancelJob" xml:space="preserve"><value>Отмена</value></data>
+  <data name="Download_Remove" xml:space="preserve"><value>Убрать из списка</value></data>
+  <data name="Download_Cancelled" xml:space="preserve"><value>Отменено</value></data>
+  <data name="Download_CancelPending" xml:space="preserve"><value>Отмена…</value></data>
+  <data name="Download_Failed" xml:space="preserve"><value>Загрузка не удалась: {0}</value></data>
+  <data name="Download_NoFiles" xml:space="preserve"><value>gallery-dl не вернул файлы. Поддерживается ли этот URL?</value></data>
+  <data name="Download_ExitCode" xml:space="preserve"><value>gallery-dl завершился с кодом {0}.</value></data>
+  <data name="Download_Enqueued" xml:space="preserve"><value>Загрузка поставлена в очередь.</value></data>
+  <data name="Download_EnqueuedMany" xml:space="preserve"><value>{0} загрузок поставлено в очередь.</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Язык</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>По умолчанию используется язык системы. Выбор здесь действует сразу и сохраняется при следующем запуске NekoDex.</value></data>
+  <data name="Reader_Streaming" xml:space="preserve"><value>Потоковое чтение — следующие страницы загружаются заранее</value></data>
+  <data name="Reader_PageFailed" xml:space="preserve"><value>Не удалось загрузить страницу {0}:
+{1}</value></data>
+  <data name="Library_Search" xml:space="preserve"><value>Название или автор</value></data>
+  <data name="Library_SortRead" xml:space="preserve"><value>Последнее чтение</value></data>
+  <data name="Library_SortAdded" xml:space="preserve"><value>Дата добавления</value></data>
+  <data name="Library_SortTitle" xml:space="preserve"><value>Название (А–Я)</value></data>
+  <data name="Library_Empty" xml:space="preserve"><value>В библиотеке нет названий.</value></data>
+  <data name="Lib_All" xml:space="preserve"><value>Все</value></data>
+  <data name="Lib_Unread" xml:space="preserve"><value>Непрочитано</value></data>
+  <data name="Lib_Reading" xml:space="preserve"><value>Читаю</value></data>
+  <data name="Lib_Done" xml:space="preserve"><value>Прочитано</value></data>
+  <data name="Lib_Clear" xml:space="preserve"><value>Снять</value></data>
+  <data name="Lib_DeleteSelected" xml:space="preserve"><value>Удалить выбранное</value></data>
+  <data name="Lib_DeleteSelectedTip" xml:space="preserve"><value>Удалить выбранные названия</value></data>
+  <data name="Lib_SelectVisibleTip" xml:space="preserve"><value>Выбрать все видимые названия</value></data>
+  <data name="Lib_Category" xml:space="preserve"><value>Категория</value></data>
+  <data name="Lib_AssignTip" xml:space="preserve"><value>Назначить выбранное категории</value></data>
+  <data name="Lib_NewCategory" xml:space="preserve"><value>Новая категория</value></data>
+  <data name="Lib_NewCategoryMenu" xml:space="preserve"><value>Новая категория…</value></data>
+  <data name="Lib_NewCategoryTip" xml:space="preserve"><value>Новая категория</value></data>
+  <data name="Lib_Pages" xml:space="preserve"><value>Страницы</value></data>
+  <data name="Lib_From" xml:space="preserve"><value>от</value></data>
+  <data name="Lib_To" xml:space="preserve"><value>до</value></data>
+  <data name="Lib_MinPagesTip" xml:space="preserve"><value>Не меньше стольких страниц</value></data>
+  <data name="Lib_MaxPagesTip" xml:space="preserve"><value>Не больше стольких страниц</value></data>
+  <data name="Lib_AssignMenuTip" xml:space="preserve"><value>Существующая или новая категория</value></data>
+  <data name="Lib_SelectTip" xml:space="preserve"><value>Выбрать</value></data>
+  <data name="Lib_Rename" xml:space="preserve"><value>Переименовать</value></data>
+  <data name="Lib_Delete" xml:space="preserve"><value>Удалить</value></data>
+  <data name="Lib_ChipTip" xml:space="preserve"><value>Щелчок фильтрует. Правый щелчок переименовывает или удаляет.</value></data>
+  <data name="Lib_AllCategories" xml:space="preserve"><value>Все категории</value></data>
+  <data name="Lib_MultiOn" xml:space="preserve"><value>Множественный выбор</value></data>
+  <data name="Lib_MultiOff" xml:space="preserve"><value>Завершить выбор</value></data>
+  <data name="Lib_PageOne" xml:space="preserve"><value>1 страница</value></data>
+  <data name="Lib_PageMany" xml:space="preserve"><value>{0} стр.</value></data>
+  <data name="Lib_Footer" xml:space="preserve"><value>{0} НАЗВАНИЙ · {1} ТЕГОВ</value></data>
+  <data name="Lib_NoTags" xml:space="preserve"><value>Тегов пока нет.
+Они появятся после первой загрузки.</value></data>
+  <data name="Lib_SearchPlaceholder" xml:space="preserve"><value>Название, автор или теги…</value></data>
+  <data name="Lib_SearchTip" xml:space="preserve"><value>Ищет название, автора и теги. Несколько тегов должны совпасть все. Минус исключает тег.</value></data>
+  <data name="Lib_ClearSearch" xml:space="preserve"><value>Очистить поиск и теги (Esc)</value></data>
+  <data name="Lib_Sources" xml:space="preserve"><value>Источники</value></data>
+  <data name="Lib_SourcesTip" xml:space="preserve"><value>Показать или скрыть источники</value></data>
+  <data name="Lib_AllSourcesTip" xml:space="preserve"><value>Отметить все источники. Правый щелчок: только этот.</value></data>
+  <data name="Lib_FilterActive" xml:space="preserve"><value>ФИЛЬТР ВКЛЮЧЁН</value></data>
+  <data name="Lib_SourcesHead" xml:space="preserve"><value>ИСТОЧНИКИ</value></data>
+  <data name="Lib_SortRecent" xml:space="preserve"><value>Недавно добавленные</value></data>
+  <data name="Lib_SortTitleAz" xml:space="preserve"><value>Название А–Я</value></data>
+  <data name="Lib_SortTitleZa" xml:space="preserve"><value>Название Я–А</value></data>
+  <data name="Lib_SortPages" xml:space="preserve"><value>Больше всего страниц</value></data>
+  <data name="Lib_SortOpened" xml:space="preserve"><value>Недавно открытые</value></data>
+  <data name="Lib_Refresh" xml:space="preserve"><value>Обновить библиотеку</value></data>
+  <data name="Lib_ActiveTagsTip" xml:space="preserve"><value>Показываются только работы со всеми этими тегами. Щелчок снимает тег.</value></data>
+  <data name="Lib_AddDownload" xml:space="preserve"><value>Добавить загрузку</value></data>
+  <data name="Lib_ScanFolder" xml:space="preserve"><value>Прочитать папку</value></data>
+  <data name="Lib_ScanTip" xml:space="preserve"><value>Добавить имеющиеся папки и архивы CBZ</value></data>
+  <data name="Lib_LibraryHead" xml:space="preserve"><value>БИБЛИОТЕКА</value></data>
+  <data name="Menu_Read" xml:space="preserve"><value>Читать</value></data>
+  <data name="Menu_ReadOnline" xml:space="preserve"><value>Читать онлайн</value></data>
+  <data name="Menu_OpenDefault" xml:space="preserve"><value>Открыть программой по умолчанию</value></data>
+  <data name="Menu_Explorer" xml:space="preserve"><value>Показать в проводнике</value></data>
+  <data name="Menu_OpenSource" xml:space="preserve"><value>Открыть источник в браузере</value></data>
+  <data name="Menu_Edit" xml:space="preserve"><value>Изменить название и теги…</value></data>
+  <data name="Menu_Favorite" xml:space="preserve"><value>Переключить избранное</value></data>
+  <data name="Menu_Remove" xml:space="preserve"><value>Удалить из библиотеки</value></data>
+  <data name="Win_Minimize" xml:space="preserve"><value>Свернуть</value></data>
+  <data name="Win_Maximize" xml:space="preserve"><value>Развернуть</value></data>
+  <data name="Win_Close" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="Web_Read" xml:space="preserve"><value>Читать</value></data>
+  <data name="Web_ReadTip" xml:space="preserve"><value>Открыть читалку в режиме потока</value></data>
+  <data name="Web_Download" xml:space="preserve"><value>Скачать</value></data>
+  <data name="Web_DownloadTip" xml:space="preserve"><value>Запустить gallery-dl в фоне и импортировать</value></data>
+  <data name="Web_TagPlaceholder" xml:space="preserve"><value>Теги или слово…</value></data>
+  <data name="Web_SearchTip" xml:space="preserve"><value>Ищет на зарегистрированном источнике. Другие сайты — в «Других источниках».</value></data>
+  <data name="Web_TagBankOff" xml:space="preserve"><value>Банк тегов Hitomi выключен</value></data>
+  <data name="Web_TagBankOn" xml:space="preserve"><value>Банк тегов Hitomi включён</value></data>
+  <data name="Web_TagBankTip" xml:space="preserve"><value>Включает или выключает банк тегов Hitomi.</value></data>
+  <data name="Web_TagBankOffHint" xml:space="preserve"><value>Банк Hitomi выключен. Учитываются только теги этого источника.</value></data>
+  <data name="Web_TagBankOnHint" xml:space="preserve"><value>Банк Hitomi включён. Подсказки и каталог тоже его используют.</value></data>
+  <data name="Web_ShowTags" xml:space="preserve"><value>Показать теги</value></data>
+  <data name="Web_HideTags" xml:space="preserve"><value>Скрыть теги</value></data>
+  <data name="Web_TagsToggleTip" xml:space="preserve"><value>Показывает или скрывает только каталог тегов.</value></data>
+  <data name="Web_CatalogCollapse" xml:space="preserve"><value>Свернуть каталог тегов</value></data>
+  <data name="Web_CatalogShow" xml:space="preserve"><value>Показать каталог тегов</value></data>
+  <data name="Web_RefreshTags" xml:space="preserve"><value>Обновить теги этого источника</value></data>
+  <data name="Web_RefreshTagsTip" xml:space="preserve"><value>Загружает указатель тегов этого сайта</value></data>
+  <data name="Web_Export" xml:space="preserve"><value>Экспорт</value></data>
+  <data name="Web_Import" xml:space="preserve"><value>Импорт</value></data>
+  <data name="Web_ExportTip" xml:space="preserve"><value>Сохранить каталог тегов этого сайта как JSON</value></data>
+  <data name="Web_ImportTip" xml:space="preserve"><value>Загрузить JSON-каталог в теги этого сайта</value></data>
+  <data name="Web_PopularHint" xml:space="preserve"><value>Категории сначала свёрнуты. Раскрытие загружает их теги.</value></data>
+  <data name="Web_ShowSearch" xml:space="preserve"><value>Показать поиск и теги</value></data>
+  <data name="Web_Discovery" xml:space="preserve"><value>Веб-поиск</value></data>
+  <data name="Web_PickTags" xml:space="preserve"><value>Выберите один или несколько тегов, чтобы начать поиск</value></data>
+  <data name="Web_CookieSettings" xml:space="preserve"><value>К настройкам (сохранить cookie)</value></data>
+  <data name="Web_Searching" xml:space="preserve"><value>Поиск…</value></data>
+  <data name="Web_Back" xml:space="preserve"><value>← Назад</value></data>
+  <data name="Web_Next" xml:space="preserve"><value>Далее →</value></data>
+  <data name="Web_Unavailable" xml:space="preserve"><value>Пока недоступно</value></data>
+  <data name="Web_NoAccess" xml:space="preserve"><value>Нет доступа к сети</value></data>
+  <data name="Web_NoHitsHint" xml:space="preserve"><value>По этим тегам ничего нет. Попробуйте другие теги или сайт.</value></data>
+  <data name="Web_NoHitsStatus" xml:space="preserve"><value>Нет результатов по этим тегам.</value></data>
+  <data name="Web_SearchFailed" xml:space="preserve"><value>Поиск не удался</value></data>
+  <data name="Web_FoundRange" xml:space="preserve"><value>Найдено {0} — показано {1}–{2}</value></data>
+  <data name="Web_Range" xml:space="preserve"><value>{0} результатов — {1}–{2}</value></data>
+  <data name="Web_PageOf" xml:space="preserve"><value>Страница {0} из {1}</value></data>
+  <data name="Web_Page" xml:space="preserve"><value>Страница {0}</value></data>
+  <data name="Sub_Of" xml:space="preserve"><value>{0} из {1} названий</value></data>
+  <data name="Sub_Count" xml:space="preserve"><value>{0} названий</value></data>
+  <data name="Sub_Settings" xml:space="preserve"><value>gallery-dl, папки и база</value></data>
+  <data name="Sub_NoDownloads" xml:space="preserve"><value>Нет активных загрузок</value></data>
+  <data name="Sub_ActiveQueued" xml:space="preserve"><value>{0} активных · {1} в очереди</value></data>
+  <data name="Sub_Active" xml:space="preserve"><value>{0} активных</value></data>
+  <data name="Sub_Searching" xml:space="preserve"><value>Поиск на {0}…</value></data>
+  <data name="Sub_WebIdle" xml:space="preserve"><value>Один сайт, выберите теги, ищите онлайн</value></data>
+  <data name="Sub_Hits" xml:space="preserve"><value>{0} результатов на {1}</value></data>
+  <data name="Empty_NoSource" xml:space="preserve"><value>Источник не выбран</value></data>
+  <data name="Empty_NoSourceHint" xml:space="preserve"><value>Откройте «Источники» рядом с поиском и отметьте хотя бы один сайт или «Все».</value></data>
+  <data name="Empty_NoHits" xml:space="preserve"><value>Нет результатов</value></data>
+  <data name="Empty_NoHitsHint" xml:space="preserve"><value>Должны совпасть все выбранные теги. Уберите тег или ослабьте фильтр источников.</value></data>
+  <data name="Empty_Library" xml:space="preserve"><value>Библиотека пуста</value></data>
+  <data name="Empty_LibraryHint" xml:space="preserve"><value>Добавьте URL в «Загрузки» или прочитайте галереи, которые уже лежат в папке.</value></data>
+  <data name="Dlg_PickTitles" xml:space="preserve"><value>Сначала выберите названия.</value></data>
+  <data name="Dlg_AssignTitle" xml:space="preserve"><value>Назначить категорию</value></data>
+  <data name="Dlg_CategoryName" xml:space="preserve"><value>Имя категории</value></data>
+  <data name="Dlg_Create" xml:space="preserve"><value>Создать</value></data>
+  <data name="Dlg_RenameTitle" xml:space="preserve"><value>Переименовать категорию</value></data>
+  <data name="Dlg_NewName" xml:space="preserve"><value>Новое имя</value></data>
+  <data name="Dlg_Save" xml:space="preserve"><value>Сохранить</value></data>
+  <data name="Dlg_DeleteCategoryTitle" xml:space="preserve"><value>Удалить категорию</value></data>
+  <data name="Dlg_DeleteCategoryBody" xml:space="preserve"><value>Удалить категорию «{0}»?
+
+Назначения будут сняты. Названия останутся в библиотеке.</value></data>
+  <data name="Dlg_DeleteTitlesTitle" xml:space="preserve"><value>Удалить названия</value></data>
+  <data name="Dlg_DeleteTitlesBody" xml:space="preserve"><value>Точно удалить {0} названий?
+
+Да также удаляет скачанные файлы. Нет удаляет только запись в библиотеке.</value></data>
+  <data name="Dlg_Assign" xml:space="preserve"><value>Назначить</value></data>
+  <data name="Dlg_CollectionName" xml:space="preserve"><value>Имя подборки</value></data>
+  <data name="Dl_UrlPlaceholder" xml:space="preserve"><value>Вставьте URL, по одному в строке</value></data>
+  <data name="Dl_TitlePlaceholder" xml:space="preserve"><value>Название (необязательно, только для одного URL)</value></data>
+  <data name="Dl_TagsPlaceholder" xml:space="preserve"><value>Теги (необязательно, через запятую)</value></data>
+  <data name="Dl_PasteTip" xml:space="preserve"><value>Вставить URL из буфера</value></data>
+  <data name="Dl_StopAll" xml:space="preserve"><value>Остановить все загрузки</value></data>
+  <data name="Dl_ClearFinished" xml:space="preserve"><value>Убрать завершённые записи</value></data>
+  <data name="Dl_LogPlaceholder" xml:space="preserve"><value>Здесь появится журнал gallery-dl выбранной загрузки.</value></data>
+  <data name="Set_Program" xml:space="preserve"><value>Файл программы</value></data>
+  <data name="Set_ProgramPlaceholder" xml:space="preserve"><value>Пусто = искать автоматически</value></data>
+  <data name="Set_Browse" xml:space="preserve"><value>Обзор…</value></data>
+  <data name="Set_DownloadUpdate" xml:space="preserve"><value>Скачать / обновить gallery-dl</value></data>
+  <data name="Set_Check" xml:space="preserve"><value>Проверить</value></data>
+  <data name="Set_ExtraArgs" xml:space="preserve"><value>Дополнительные аргументы</value></data>
+  <data name="Set_ExtraArgsHint" xml:space="preserve"><value>Передаются перед URL при каждой загрузке. Данные входа можно хранить и в конфиге gallery-dl.</value></data>
+  <data name="Set_Parallel" xml:space="preserve"><value>Одновременные загрузки</value></data>
+  <data name="Set_Folder" xml:space="preserve"><value>Папка загрузок</value></data>
+  <data name="Set_Open" xml:space="preserve"><value>Открыть</value></data>
+  <data name="Set_ScanTip" xml:space="preserve"><value>Добавить галереи, которые уже лежат в папке</value></data>
+  <data name="Set_ScanHint" xml:space="preserve"><value>Добавляет папки с изображениями и архивы CBZ/ZIP, которых ещё нет в библиотеке. Названия и теги берутся из ComicInfo.xml, metadata.json или info.json. Файлы только читаются.</value></data>
+  <data name="Set_WebAccess" xml:space="preserve"><value>ВЕБ-ДОСТУП / CLOUDFLARE</value></data>
+  <data name="Set_WebAccessHint" xml:space="preserve"><value>E-Hentai, ExHentai и другие заблокированные источники читают сеанс из браузера. Ручные cookie необязательны.</value></data>
+  <data name="Set_Browser" xml:space="preserve"><value>Браузер</value></data>
+  <data name="Set_Auto" xml:space="preserve"><value>Автоматически</value></data>
+  <data name="Set_PasteCookies" xml:space="preserve"><value>Вставить cookie</value></data>
+  <data name="Set_ApplyCookies" xml:space="preserve"><value>Применить cookie</value></data>
+  <data name="Set_ApplyCookiesTip" xml:space="preserve"><value>Заменяет сохранённые cookie этого домена</value></data>
+  <data name="Set_ClearDomain" xml:space="preserve"><value>Очистить домен</value></data>
+  <data name="Set_CookieHint" xml:space="preserve"><value>Эти значения уходят в gallery-dl и прямой поиск как файл cookie Netscape. ipb_member_id и ipb_pass_hash относятся к e-hentai.org и exhentai.org. cf_clearance — необязательный cookie Cloudflare.</value></data>
+  <data name="Set_Clearance" xml:space="preserve"><value>cf_clearance (необязательно)</value></data>
+  <data name="Set_Flare" xml:space="preserve"><value>FlareSolverr (необязательно)</value></data>
+  <data name="Set_FlareHint" xml:space="preserve"><value>Если API отвечает 403, сначала спрашивается FlareSolverr, затем gallery-dl. Cookie проверки сохраняются сами.</value></data>
+  <data name="Set_Save" xml:space="preserve"><value>Сохранить настройки</value></data>
+  <data name="Set_Ready" xml:space="preserve"><value>Готово</value></data>
+  <data name="Set_Blacklist" xml:space="preserve"><value>ИСКЛЮЧЁННЫЕ ТЕГИ</value></data>
+  <data name="Set_BlacklistHint" xml:space="preserve"><value>Веб-поиск исключает эти теги. nhentai и E-Hentai получают их как -tag, Hitomi фильтрует результаты.</value></data>
+  <data name="Set_Add" xml:space="preserve"><value>Добавить</value></data>
+  <data name="Set_RemoveBlacklist" xml:space="preserve"><value>Убрать тег из списка исключений</value></data>
+  <data name="Edit_Title" xml:space="preserve"><value>ИЗМЕНИТЬ ЗАПИСЬ</value></data>
+  <data name="Edit_Name" xml:space="preserve"><value>Название</value></data>
+  <data name="Edit_Author" xml:space="preserve"><value>Автор</value></data>
+  <data name="Edit_Optional" xml:space="preserve"><value>необязательно</value></data>
+</root>

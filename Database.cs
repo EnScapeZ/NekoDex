@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Microsoft.Data.Sqlite;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 // ════════════════════════════════════════════════════════════════════════
 //  Quellen (Websites)
@@ -594,11 +594,8 @@ public sealed class Database
 
     private readonly string _connectionString;
 
-    /// <summary>Standardpfad: <c>%LocalAppData%\MangaLibraryApp\manga_library.db</c>.</summary>
-    public static string DefaultPath { get; } = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "MangaLibraryApp",
-        FileName);
+    /// <summary>Standardpfad: <c>%LocalAppData%\NekoDex\manga_library.db</c>.</summary>
+    public static string DefaultPath { get; } = Path.Combine(AppPaths.DataDirectory, FileName);
 
     public string DatabasePath { get; }
 

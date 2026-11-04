@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public partial class ReaderView : UserControl
 {

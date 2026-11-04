@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
+using AppSettings = NekoDex.AppSettings;
 
 namespace NekoDex.Services.Scrapers
 {
@@ -61,8 +61,8 @@ namespace NekoDex.Services.Scrapers
             """data-src="(?<url>https?://[^"]+/\d+t\.jpg)""",
             RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
-        /// <summary>Dieselbe Blacklist wie <see cref="MangaLibraryApp.WebSearchViewModel"/>. Die Suche filtert darüber, bevor Treffer zurückgehen.</summary>
-        public MangaLibraryApp.WebSearchViewModel? TagBlacklist { get; set; }
+        /// <summary>Dieselbe Blacklist wie <see cref="NekoDex.WebSearchViewModel"/>. Die Suche filtert darüber, bevor Treffer zurückgehen.</summary>
+        public NekoDex.WebSearchViewModel? TagBlacklist { get; set; }
 
         public SourceProvider Provider => SourceProvider.HentaiFox;
 
@@ -130,7 +130,7 @@ namespace NekoDex.Services.Scrapers
 
         public async Task<IReadOnlyList<HentaiFoxTag>> GetOnlineTagsAsync(
             bool fullIndex,
-            IProgress<MangaLibraryApp.TagDownloadProgress>? progress,
+            IProgress<NekoDex.TagDownloadProgress>? progress,
             CancellationToken cancellationToken = default)
         {
             var urls = new List<string> { BaseUrl + "categories/" };
@@ -147,7 +147,7 @@ namespace NekoDex.Services.Scrapers
             for (var i = 0; i < urls.Count; i++)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                progress?.Report(new MangaLibraryApp.TagDownloadProgress(
+                progress?.Report(new NekoDex.TagDownloadProgress(
                     i, urls.Count, "Lade " + urls[i], tags.Count));
                 string html;
                 try
@@ -174,7 +174,7 @@ namespace NekoDex.Services.Scrapers
                 }
             }
 
-            progress?.Report(new MangaLibraryApp.TagDownloadProgress(urls.Count, urls.Count, "Tags geladen", tags.Count));
+            progress?.Report(new NekoDex.TagDownloadProgress(urls.Count, urls.Count, "Tags geladen", tags.Count));
             return tags.Values
                 .OrderByDescending(tag => tag.Count)
                 .ThenBy(tag => tag.Name, StringComparer.OrdinalIgnoreCase)

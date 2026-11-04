@@ -18,8 +18,80 @@
           "NekoDex.dll": {}
         },
         "resources": {
+          "bg/NekoDex.resources.dll": {
+            "locale": "bg"
+          },
+          "cs/NekoDex.resources.dll": {
+            "locale": "cs"
+          },
+          "da/NekoDex.resources.dll": {
+            "locale": "da"
+          },
           "de/NekoDex.resources.dll": {
             "locale": "de"
+          },
+          "el/NekoDex.resources.dll": {
+            "locale": "el"
+          },
+          "es/NekoDex.resources.dll": {
+            "locale": "es"
+          },
+          "fi/NekoDex.resources.dll": {
+            "locale": "fi"
+          },
+          "fr/NekoDex.resources.dll": {
+            "locale": "fr"
+          },
+          "hr/NekoDex.resources.dll": {
+            "locale": "hr"
+          },
+          "hu/NekoDex.resources.dll": {
+            "locale": "hu"
+          },
+          "it/NekoDex.resources.dll": {
+            "locale": "it"
+          },
+          "ja/NekoDex.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/NekoDex.resources.dll": {
+            "locale": "ko"
+          },
+          "nb/NekoDex.resources.dll": {
+            "locale": "nb"
+          },
+          "nl/NekoDex.resources.dll": {
+            "locale": "nl"
+          },
+          "pl/NekoDex.resources.dll": {
+            "locale": "pl"
+          },
+          "pt/NekoDex.resources.dll": {
+            "locale": "pt"
+          },
+          "ro/NekoDex.resources.dll": {
+            "locale": "ro"
+          },
+          "ru/NekoDex.resources.dll": {
+            "locale": "ru"
+          },
+          "sk/NekoDex.resources.dll": {
+            "locale": "sk"
+          },
+          "sl/NekoDex.resources.dll": {
+            "locale": "sl"
+          },
+          "sv/NekoDex.resources.dll": {
+            "locale": "sv"
+          },
+          "tr/NekoDex.resources.dll": {
+            "locale": "tr"
+          },
+          "uk/NekoDex.resources.dll": {
+            "locale": "uk"
+          },
+          "zh-Hans/NekoDex.resources.dll": {
+            "locale": "zh-Hans"
           }
         }
       },

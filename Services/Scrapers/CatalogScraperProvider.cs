@@ -1,6 +1,6 @@
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
+using AppSettings = NekoDex.AppSettings;
 
 namespace NekoDex.Services.Scrapers
 {
@@ -19,7 +19,7 @@ namespace NekoDex.Services.Scrapers
         public virtual bool SupportsTagSearch => true;
 
         public virtual string BuildSearchUrl(string query, int page) =>
-            MangaLibraryApp.ApiSearchService.BuildSearchUrl(SiteId, query ?? string.Empty, Math.Max(1, page));
+            NekoDex.ApiSearchService.BuildSearchUrl(SiteId, query ?? string.Empty, Math.Max(1, page));
 
         public virtual async Task<IEnumerable<GalleryResult>> SearchAsync(
             string query,
@@ -27,7 +27,7 @@ namespace NekoDex.Services.Scrapers
             AppSettings settings,
             CancellationToken cancellationToken = default)
         {
-            using var api = new MangaLibraryApp.ApiSearchService();
+            using var api = new NekoDex.ApiSearchService();
             api.ExtraArgs = settings.ExtraArgs;
             api.FlareSolverrUrl = string.IsNullOrWhiteSpace(settings.FlareSolverrUrl) ? null : settings.FlareSolverrUrl;
             api.WorkingDirectory = string.IsNullOrWhiteSpace(settings.LibraryPath) ? null : settings.LibraryPath;
@@ -56,9 +56,9 @@ namespace NekoDex.Services.Scrapers
             return hits;
         }
 
-        private static IEnumerable<MangaLibraryApp.StoredHttpCookie> SessionCookies(AppSettings settings)
+        private static IEnumerable<NekoDex.StoredHttpCookie> SessionCookies(AppSettings settings)
         {
-            var cookies = new List<MangaLibraryApp.StoredHttpCookie>();
+            var cookies = new List<NekoDex.StoredHttpCookie>();
             Add(cookies, "e-hentai.org", "ipb_member_id", settings.EHentaiIpbMemberId);
             Add(cookies, "e-hentai.org", "ipb_pass_hash", settings.EHentaiIpbPassHash);
             Add(cookies, "e-hentai.org", "cf_clearance", settings.EHentaiCfClearance);
@@ -68,11 +68,11 @@ namespace NekoDex.Services.Scrapers
             return cookies;
         }
 
-        private static void Add(List<MangaLibraryApp.StoredHttpCookie> cookies, string domain, string name, string? value)
+        private static void Add(List<NekoDex.StoredHttpCookie> cookies, string domain, string name, string? value)
         {
             if (string.IsNullOrWhiteSpace(value))
                 return;
-            cookies.Add(new MangaLibraryApp.StoredHttpCookie(domain, name, value.Trim(), "/"));
+            cookies.Add(new NekoDex.StoredHttpCookie(domain, name, value.Trim(), "/"));
         }
     }
 }

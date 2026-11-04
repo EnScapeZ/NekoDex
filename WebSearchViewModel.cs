@@ -4,7 +4,7 @@ using System.Windows.Threading;
 using NekoDex.Services.Scrapers;
 using PlatformSource = NekoDex.Core.Enums.SourceProvider;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Ein Tab oder ein Eintrag unter „Weitere Quellen…“.</summary>
 public sealed class WebSourceOption : ObservableObject

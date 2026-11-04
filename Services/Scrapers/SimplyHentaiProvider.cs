@@ -12,11 +12,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
-using GalleryDl = MangaLibraryApp.GalleryDl;
-using TagDownloadProgress = MangaLibraryApp.TagDownloadProgress;
-using TagNames = MangaLibraryApp.TagNames;
-using WebSearchViewModel = MangaLibraryApp.WebSearchViewModel;
+using AppSettings = NekoDex.AppSettings;
+using GalleryDl = NekoDex.GalleryDl;
+using TagDownloadProgress = NekoDex.TagDownloadProgress;
+using TagNames = NekoDex.TagNames;
+using WebSearchViewModel = NekoDex.WebSearchViewModel;
 
 namespace NekoDex.Services.Scrapers
 {
@@ -86,7 +86,7 @@ namespace NekoDex.Services.Scrapers
         /// <summary>Gesetzte URL und Antwortgröße, wenn die Suche nichts liefert.</summary>
         public string? SearchDiagnostic { get; private set; }
 
-        public void ApplyGalleryDlSession(IEnumerable<MangaLibraryApp.StoredHttpCookie>? stored)
+        public void ApplyGalleryDlSession(IEnumerable<NekoDex.StoredHttpCookie>? stored)
         {
             _useGalleryDlAgent = false;
             _hasClearance = false;
@@ -101,7 +101,7 @@ namespace NekoDex.Services.Scrapers
                         continue;
                     try
                     {
-                        added += ApplySessionCookies(MangaLibraryApp.HttpCookieImport.Parse(File.ReadAllText(path), host));
+                        added += ApplySessionCookies(NekoDex.HttpCookieImport.Parse(File.ReadAllText(path), host));
                     }
                     catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                     {
@@ -365,7 +365,7 @@ namespace NekoDex.Services.Scrapers
             }
         }
 
-        private int ApplySessionCookies(IEnumerable<MangaLibraryApp.StoredHttpCookie>? cookies)
+        private int ApplySessionCookies(IEnumerable<NekoDex.StoredHttpCookie>? cookies)
         {
             if (cookies is null)
                 return 0;
@@ -540,15 +540,15 @@ namespace NekoDex.Services.Scrapers
         private static IEnumerable<string> GalleryDlCookieFiles(string host)
         {
             var file = "cookies." + host.Replace('.', '_') + ".txt";
-            yield return Path.Combine(Path.GetTempPath(), "MangaLibraryApp", file);
-            var tools = Path.GetDirectoryName(MangaLibraryApp.GalleryDlService.ToolsPath);
+            yield return Path.Combine(Path.GetTempPath(), "NekoDex", file);
+            var tools = Path.GetDirectoryName(NekoDex.GalleryDlService.ToolsPath);
             if (!string.IsNullOrEmpty(tools))
             {
                 yield return Path.Combine(tools, file);
                 yield return Path.Combine(tools, "cookies.txt");
             }
 
-            var bundled = Path.GetDirectoryName(MangaLibraryApp.GalleryDlService.BundledPath);
+            var bundled = Path.GetDirectoryName(NekoDex.GalleryDlService.BundledPath);
             if (!string.IsNullOrEmpty(bundled))
             {
                 yield return Path.Combine(bundled, file);

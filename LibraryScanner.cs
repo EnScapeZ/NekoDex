@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Media.Imaging;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 // ════════════════════════════════════════════════════════════════════════
 //  Dateisystem: gallery-dl-Ausgabe auswerten, Ordner und Archive scannen

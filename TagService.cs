@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Fortschritt beim Herunterladen des Online-Tag-Index.</summary>
 public sealed record TagDownloadProgress(int Completed, int Total, string Status, int Collected);

@@ -1,7 +1,8 @@
-<Window x:Class="MangaLibraryApp.ReaderWindow"
+<Window x:Class="NekoDex.ReaderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:MangaLibraryApp"
+        xmlns:local="clr-namespace:NekoDex"
+        xmlns:lex="clr-namespace:NekoDex"
         Title="Reader" Icon="pack://application:,,,/Assets/app.ico" Width="1100" Height="900" MinWidth="700" MinHeight="520"
         WindowStartupLocation="CenterOwner"
         Background="{DynamicResource BgBrush}"
@@ -114,17 +115,17 @@
                 <TextBlock x:Name="SourceBadge" Style="{StaticResource Overline}" Foreground="{StaticResource AccentBrush}"
                            VerticalAlignment="Center" Margin="0,3,10,0" IsHitTestVisible="False"/>
                 <Button x:Name="DirectionButton" Style="{StaticResource CaptionButton}" Content="&#xE7B3;" Click="Direction_Click"
-                        ToolTip="Leserichtung: links → rechts (R)"/>
+                        ToolTip="{lex:Loc Read_Ltr}"/>
                 <Button x:Name="FitButton" Style="{StaticResource CaptionButton}" Content="&#xE9A6;" Click="Fit_Click"
-                        ToolTip="Ansicht: ganze Seite (F)"/>
+                        ToolTip="{lex:Loc Read_FitPage}"/>
                 <Button x:Name="BrowserButton" Style="{StaticResource CaptionButton}" Content="&#xE71B;" Click="Browser_Click"
-                        ToolTip="Galerie im Browser öffnen"/>
+                        ToolTip="{lex:Loc Read_Browser}"/>
                 <Button x:Name="FullscreenButton" Style="{StaticResource CaptionButton}" Content="&#xE740;" Click="Fullscreen_Click"
-                        ToolTip="Vollbild (F11)"/>
-                <Button Style="{StaticResource CaptionButton}" Content="&#xE921;" ToolTip="Minimieren" Click="Minimize_Click"/>
-                <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButton}" Content="&#xE922;" ToolTip="Maximieren"
+                        ToolTip="{lex:Loc Read_Fullscreen}"/>
+                <Button Style="{StaticResource CaptionButton}" Content="&#xE921;" ToolTip="{lex:Loc Win_Minimize}" Click="Minimize_Click"/>
+                <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButton}" Content="&#xE922;" ToolTip="{lex:Loc Win_Maximize}"
                         Click="MaximizeRestore_Click"/>
-                <Button Style="{StaticResource CloseCaptionButton}" Content="&#xE8BB;" ToolTip="Schließen (Esc)" Click="Close_Click"/>
+                <Button Style="{StaticResource CloseCaptionButton}" Content="&#xE8BB;" ToolTip="{lex:Loc Read_CloseEsc}" Click="Close_Click"/>
             </StackPanel>
         </Grid>
 
@@ -156,11 +157,11 @@
                     MaxWidth="560" Padding="26,22" CornerRadius="14" Background="{StaticResource PanelBrush}"
                     BorderBrush="{StaticResource DangerLineBrush}" BorderThickness="1">
                 <StackPanel>
-                    <TextBlock Text="FEHLER" Style="{StaticResource Overline}" Foreground="{StaticResource DangerBrush}"/>
+                    <TextBlock Text="{lex:Loc Read_Error}" Style="{StaticResource Overline}" Foreground="{StaticResource DangerBrush}"/>
                     <TextBlock x:Name="ErrorText" Margin="0,10,0,0" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}"/>
                     <StackPanel Orientation="Horizontal" Margin="0,18,0,0">
-                        <Button x:Name="RetryButton" Content="Erneut versuchen" Style="{StaticResource AccentButton}" Click="Retry_Click"/>
-                        <Button Content="Schließen" Style="{StaticResource HudButton}" Margin="10,0,0,0" Click="Close_Click"/>
+                        <Button x:Name="RetryButton" Content="{lex:Loc Read_Retry}" Style="{StaticResource AccentButton}" Click="Retry_Click"/>
+                        <Button Content="{lex:Loc Win_Close}" Style="{StaticResource HudButton}" Margin="10,0,0,0" Click="Close_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -178,7 +179,7 @@
                     <ColumnDefinition Width="Auto" MinWidth="150"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="PrevButton" Style="{StaticResource IconButton}" Content="&#xE76B;" ToolTip="Vorherige Seite (←)"
+                <Button x:Name="PrevButton" Style="{StaticResource IconButton}" Content="&#xE76B;" ToolTip="{lex:Loc Read_Prev}"
                         Click="Prev_Click"/>
                 <TextBlock x:Name="PageText" Grid.Column="1" Margin="12,0,16,0" VerticalAlignment="Center" MinWidth="86"
                            FontFamily="{StaticResource MonoFont}" FontSize="13" Text="–"/>
@@ -186,7 +187,7 @@
                         SmallChange="1" LargeChange="5" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="PageSlider_ValueChanged"
                         AutomationProperties.Name="Seite"/>
                 <Button x:Name="NextButton" Grid.Column="3" Style="{StaticResource IconButton}" Content="&#xE76C;" Margin="16,0,0,0"
-                        ToolTip="Nächste Seite (→)" Click="Next_Click"/>
+                        ToolTip="{lex:Loc Read_Next}" Click="Next_Click"/>
                 <TextBlock x:Name="StatusText" Grid.Column="4" Margin="18,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right"
                            Foreground="{StaticResource DimBrush}" FontFamily="{StaticResource MonoFont}" FontSize="11.5"
                            TextTrimming="CharacterEllipsis"/>

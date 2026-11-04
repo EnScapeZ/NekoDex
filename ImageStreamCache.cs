@@ -1,4 +1,4 @@
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Lädt die nächsten Leserseiten vor, sobald die aktuelle Seite steht.</summary>
 public static class ImageStreamCache

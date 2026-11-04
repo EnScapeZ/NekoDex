@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Nav_Library" xml:space="preserve"><value>라이브러리</value></data>
+  <data name="Nav_Favorites" xml:space="preserve"><value>즐겨찾기</value></data>
+  <data name="Nav_Downloads" xml:space="preserve"><value>다운로드</value></data>
+  <data name="Nav_WebSearch" xml:space="preserve"><value>웹 검색</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>설정</value></data>
+  <data name="Web_Search" xml:space="preserve"><value>온라인 검색</value></data>
+  <data name="Web_Cancel" xml:space="preserve"><value>취소</value></data>
+  <data name="Web_Target" xml:space="preserve"><value>대상 사이트</value></data>
+  <data name="Web_Cloudflare" xml:space="preserve"><value>Cloudflare가 요청을 차단했습니다(HTTP 403 / gallery-dl 코드 2). 세션은 선택한 브라우저에서 읽습니다. 실패하면 브라우저를 잠시 닫으세요.</value></data>
+  <data name="Web_CookieLocked" xml:space="preserve"><value>브라우저 쿠키에 접근할 수 없습니다. NekoDex가 세션을 읽을 수 있도록 브라우저를 잠시 닫으세요.</value></data>
+  <data name="Web_Roadmap" xml:space="preserve"><value>{0}은(는) 예정되어 있지만 아직 사용할 수 없습니다.</value></data>
+  <data name="Download_New" xml:space="preserve"><value>새 다운로드</value></data>
+  <data name="Download_Paste" xml:space="preserve"><value>붙여넣기</value></data>
+  <data name="Download_ReadOnline" xml:space="preserve"><value>온라인으로 읽기</value></data>
+  <data name="Download_ReadOnlineTip" xml:space="preserve"><value>갤러리를 저장하지 않고 첫 주소를 리더에서 엽니다(gallery-dl -g).</value></data>
+  <data name="Download_Start" xml:space="preserve"><value>다운로드 시작</value></data>
+  <data name="Download_Queue" xml:space="preserve"><value>대기열</value></data>
+  <data name="Download_Empty" xml:space="preserve"><value>다운로드가 없습니다. 위에 URL을 추가하세요.</value></data>
+  <data name="Download_Log" xml:space="preserve"><value>로그</value></data>
+  <data name="Download_Queued" xml:space="preserve"><value>대기 중</value></data>
+  <data name="Download_Connecting" xml:space="preserve"><value>연결하고 메타데이터를 읽는 중…</value></data>
+  <data name="Download_Loaded" xml:space="preserve"><value>{0}개 다운로드됨</value></data>
+  <data name="Download_Skipped" xml:space="preserve"><value>{0}개 건너뜀</value></data>
+  <data name="Download_Progress" xml:space="preserve"><value>{0}/{1}{2}</value></data>
+  <data name="Download_FailedBadge" xml:space="preserve"><value>오류</value></data>
+  <data name="Download_Retry" xml:space="preserve"><value>다시 시도</value></data>
+  <data name="Download_CancelJob" xml:space="preserve"><value>취소</value></data>
+  <data name="Download_Remove" xml:space="preserve"><value>목록에서 제거</value></data>
+  <data name="Download_Cancelled" xml:space="preserve"><value>취소됨</value></data>
+  <data name="Download_CancelPending" xml:space="preserve"><value>취소 중…</value></data>
+  <data name="Download_Failed" xml:space="preserve"><value>다운로드 실패: {0}</value></data>
+  <data name="Download_NoFiles" xml:space="preserve"><value>gallery-dl이 파일을 반환하지 않았습니다. 이 URL을 지원하나요?</value></data>
+  <data name="Download_ExitCode" xml:space="preserve"><value>gallery-dl이 코드 {0}(으)로 종료되었습니다.</value></data>
+  <data name="Download_Enqueued" xml:space="preserve"><value>다운로드가 대기열에 추가되었습니다.</value></data>
+  <data name="Download_EnqueuedMany" xml:space="preserve"><value>다운로드 {0}개가 대기열에 추가되었습니다.</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>언어</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>기본값은 시스템 언어입니다. 여기서 고르면 바로 적용되고 다음에 NekoDex를 실행할 때도 유지됩니다.</value></data>
+  <data name="Reader_Streaming" xml:space="preserve"><value>스트리밍 — 다음 페이지를 미리 불러옵니다</value></data>
+  <data name="Reader_PageFailed" xml:space="preserve"><value>{0}페이지를 불러올 수 없습니다:
+{1}</value></data>
+  <data name="Library_Search" xml:space="preserve"><value>제목 또는 작가</value></data>
+  <data name="Library_SortRead" xml:space="preserve"><value>최근 읽음</value></data>
+  <data name="Library_SortAdded" xml:space="preserve"><value>추가한 날짜</value></data>
+  <data name="Library_SortTitle" xml:space="preserve"><value>제목(A–Z)</value></data>
+  <data name="Library_Empty" xml:space="preserve"><value>라이브러리에 작품이 없습니다.</value></data>
+  <data name="Lib_All" xml:space="preserve"><value>전체</value></data>
+  <data name="Lib_Unread" xml:space="preserve"><value>읽지 않음</value></data>
+  <data name="Lib_Reading" xml:space="preserve"><value>읽는 중</value></data>
+  <data name="Lib_Done" xml:space="preserve"><value>완료</value></data>
+  <data name="Lib_Clear" xml:space="preserve"><value>해제</value></data>
+  <data name="Lib_DeleteSelected" xml:space="preserve"><value>선택 삭제</value></data>
+  <data name="Lib_DeleteSelectedTip" xml:space="preserve"><value>선택한 작품 삭제</value></data>
+  <data name="Lib_SelectVisibleTip" xml:space="preserve"><value>보이는 작품 모두 선택</value></data>
+  <data name="Lib_Category" xml:space="preserve"><value>분류</value></data>
+  <data name="Lib_AssignTip" xml:space="preserve"><value>선택 항목을 분류에 지정</value></data>
+  <data name="Lib_NewCategory" xml:space="preserve"><value>새 분류</value></data>
+  <data name="Lib_NewCategoryMenu" xml:space="preserve"><value>새 분류…</value></data>
+  <data name="Lib_NewCategoryTip" xml:space="preserve"><value>새 분류</value></data>
+  <data name="Lib_Pages" xml:space="preserve"><value>페이지</value></data>
+  <data name="Lib_From" xml:space="preserve"><value>부터</value></data>
+  <data name="Lib_To" xml:space="preserve"><value>까지</value></data>
+  <data name="Lib_MinPagesTip" xml:space="preserve"><value>최소 페이지 수</value></data>
+  <data name="Lib_MaxPagesTip" xml:space="preserve"><value>최대 페이지 수</value></data>
+  <data name="Lib_AssignMenuTip" xml:space="preserve"><value>기존 또는 새 분류</value></data>
+  <data name="Lib_SelectTip" xml:space="preserve"><value>선택</value></data>
+  <data name="Lib_Rename" xml:space="preserve"><value>이름 바꾸기</value></data>
+  <data name="Lib_Delete" xml:space="preserve"><value>삭제</value></data>
+  <data name="Lib_ChipTip" xml:space="preserve"><value>클릭하면 필터. 오른쪽 클릭으로 이름 변경 또는 삭제.</value></data>
+  <data name="Lib_AllCategories" xml:space="preserve"><value>모든 분류</value></data>
+  <data name="Lib_MultiOn" xml:space="preserve"><value>다중 선택</value></data>
+  <data name="Lib_MultiOff" xml:space="preserve"><value>선택 끝내기</value></data>
+  <data name="Lib_PageOne" xml:space="preserve"><value>1페이지</value></data>
+  <data name="Lib_PageMany" xml:space="preserve"><value>{0}페이지</value></data>
+  <data name="Lib_Footer" xml:space="preserve"><value>작품 {0} · 태그 {1}</value></data>
+  <data name="Lib_NoTags" xml:space="preserve"><value>아직 태그가 없습니다.
+첫 다운로드 후에 나타납니다.</value></data>
+  <data name="Lib_SearchPlaceholder" xml:space="preserve"><value>제목, 작가 또는 태그…</value></data>
+  <data name="Lib_SearchTip" xml:space="preserve"><value>제목, 작가, 태그를 검색합니다. 태그가 여러 개면 모두 일치해야 합니다. 앞에 빼기를 붙이면 태그를 제외합니다.</value></data>
+  <data name="Lib_ClearSearch" xml:space="preserve"><value>검색과 태그 지우기 (Esc)</value></data>
+  <data name="Lib_Sources" xml:space="preserve"><value>출처</value></data>
+  <data name="Lib_SourcesTip" xml:space="preserve"><value>출처 표시 또는 숨기기</value></data>
+  <data name="Lib_AllSourcesTip" xml:space="preserve"><value>모든 출처를 선택. 오른쪽 클릭하면 그 출처만.</value></data>
+  <data name="Lib_FilterActive" xml:space="preserve"><value>필터 켜짐</value></data>
+  <data name="Lib_SourcesHead" xml:space="preserve"><value>출처</value></data>
+  <data name="Lib_SortRecent" xml:space="preserve"><value>최근 추가</value></data>
+  <data name="Lib_SortTitleAz" xml:space="preserve"><value>제목 A–Z</value></data>
+  <data name="Lib_SortTitleZa" xml:space="preserve"><value>제목 Z–A</value></data>
+  <data name="Lib_SortPages" xml:space="preserve"><value>페이지 많은 순</value></data>
+  <data name="Lib_SortOpened" xml:space="preserve"><value>최근 연 항목</value></data>
+  <data name="Lib_Refresh" xml:space="preserve"><value>라이브러리 다시 불러오기</value></data>
+  <data name="Lib_ActiveTagsTip" xml:space="preserve"><value>이 태그를 모두 가진 작품만 표시됩니다. 태그를 클릭하면 제거됩니다.</value></data>
+  <data name="Lib_AddDownload" xml:space="preserve"><value>다운로드 추가</value></data>
+  <data name="Lib_ScanFolder" xml:space="preserve"><value>폴더 읽기</value></data>
+  <data name="Lib_ScanTip" xml:space="preserve"><value>라이브러리 폴더의 기존 폴더와 CBZ를 가져옵니다</value></data>
+  <data name="Lib_LibraryHead" xml:space="preserve"><value>라이브러리</value></data>
+  <data name="Menu_Read" xml:space="preserve"><value>읽기</value></data>
+  <data name="Menu_ReadOnline" xml:space="preserve"><value>온라인으로 읽기</value></data>
+  <data name="Menu_OpenDefault" xml:space="preserve"><value>기본 앱으로 열기</value></data>
+  <data name="Menu_Explorer" xml:space="preserve"><value>탐색기에서 표시</value></data>
+  <data name="Menu_OpenSource" xml:space="preserve"><value>출처를 브라우저에서 열기</value></data>
+  <data name="Menu_Edit" xml:space="preserve"><value>제목과 태그 편집…</value></data>
+  <data name="Menu_Favorite" xml:space="preserve"><value>즐겨찾기 전환</value></data>
+  <data name="Menu_Remove" xml:space="preserve"><value>라이브러리에서 제거</value></data>
+  <data name="Win_Minimize" xml:space="preserve"><value>최소화</value></data>
+  <data name="Win_Maximize" xml:space="preserve"><value>최대화</value></data>
+  <data name="Win_Close" xml:space="preserve"><value>닫기</value></data>
+  <data name="Web_Read" xml:space="preserve"><value>바로 읽기</value></data>
+  <data name="Web_ReadTip" xml:space="preserve"><value>온라인 스트리밍으로 리더 열기</value></data>
+  <data name="Web_Download" xml:space="preserve"><value>다운로드</value></data>
+  <data name="Web_DownloadTip" xml:space="preserve"><value>gallery-dl을 백그라운드에서 실행한 뒤 라이브러리로 가져옵니다</value></data>
+  <data name="Web_TagPlaceholder" xml:space="preserve"><value>태그 또는 검색어…</value></data>
+  <data name="Web_SearchTip" xml:space="preserve"><value>등록된 출처에서 검색합니다. 다른 사이트는 추가 출처에 있습니다.</value></data>
+  <data name="Web_TagBankOff" xml:space="preserve"><value>Hitomi 태그 뱅크 꺼짐</value></data>
+  <data name="Web_TagBankOn" xml:space="preserve"><value>Hitomi 태그 뱅크 켜짐</value></data>
+  <data name="Web_TagBankTip" xml:space="preserve"><value>자동 완성과 카탈로그용 Hitomi 태그 뱅크를 켜거나 끕니다.</value></data>
+  <data name="Web_TagBankOffHint" xml:space="preserve"><value>Hitomi 태그 뱅크가 꺼져 있습니다. 이 출처의 태그만 사용됩니다.</value></data>
+  <data name="Web_TagBankOnHint" xml:space="preserve"><value>Hitomi 태그 뱅크가 켜져 있습니다. 제안과 카탈로그도 사용합니다.</value></data>
+  <data name="Web_ShowTags" xml:space="preserve"><value>태그 표시</value></data>
+  <data name="Web_HideTags" xml:space="preserve"><value>태그 숨기기</value></data>
+  <data name="Web_TagsToggleTip" xml:space="preserve"><value>태그 카탈로그만 표시하거나 숨깁니다.</value></data>
+  <data name="Web_CatalogCollapse" xml:space="preserve"><value>태그 카탈로그 접기</value></data>
+  <data name="Web_CatalogShow" xml:space="preserve"><value>태그 카탈로그 표시</value></data>
+  <data name="Web_RefreshTags" xml:space="preserve"><value>이 출처의 태그 업데이트</value></data>
+  <data name="Web_RefreshTagsTip" xml:space="preserve"><value>이 사이트의 태그 색인을 불러옵니다</value></data>
+  <data name="Web_Export" xml:space="preserve"><value>내보내기</value></data>
+  <data name="Web_Import" xml:space="preserve"><value>가져오기</value></data>
+  <data name="Web_ExportTip" xml:space="preserve"><value>이 사이트의 태그 카탈로그를 JSON으로 저장</value></data>
+  <data name="Web_ImportTip" xml:space="preserve"><value>JSON 카탈로그를 이 사이트의 태그로 가져옵니다</value></data>
+  <data name="Web_PopularHint" xml:space="preserve"><value>분류는 접힌 채로 시작합니다. 펼치면 해당 태그를 불러옵니다.</value></data>
+  <data name="Web_ShowSearch" xml:space="preserve"><value>검색과 태그 표시</value></data>
+  <data name="Web_Discovery" xml:space="preserve"><value>웹 탐색</value></data>
+  <data name="Web_PickTags" xml:space="preserve"><value>검색을 시작하려면 태그를 하나 이상 고르세요</value></data>
+  <data name="Web_CookieSettings" xml:space="preserve"><value>설정으로 (쿠키 저장)</value></data>
+  <data name="Web_Searching" xml:space="preserve"><value>검색 중…</value></data>
+  <data name="Web_Back" xml:space="preserve"><value>← 뒤로</value></data>
+  <data name="Web_Next" xml:space="preserve"><value>다음 →</value></data>
+  <data name="Web_Unavailable" xml:space="preserve"><value>아직 사용할 수 없음</value></data>
+  <data name="Web_NoAccess" xml:space="preserve"><value>온라인 접속 불가</value></data>
+  <data name="Web_NoHitsHint" xml:space="preserve"><value>이 태그에는 결과가 없습니다. 다른 태그나 사이트를 시도하세요.</value></data>
+  <data name="Web_NoHitsStatus" xml:space="preserve"><value>이 태그에 대한 결과가 없습니다.</value></data>
+  <data name="Web_SearchFailed" xml:space="preserve"><value>검색 실패</value></data>
+  <data name="Web_FoundRange" xml:space="preserve"><value>결과 {0}개 — {1}–{2} 표시</value></data>
+  <data name="Web_Range" xml:space="preserve"><value>결과 {0}개 — {1}–{2}</value></data>
+  <data name="Web_PageOf" xml:space="preserve"><value>{0} / {1}페이지</value></data>
+  <data name="Web_Page" xml:space="preserve"><value>{0}페이지</value></data>
+  <data name="Sub_Of" xml:space="preserve"><value>{0} / {1}개</value></data>
+  <data name="Sub_Count" xml:space="preserve"><value>{0}개</value></data>
+  <data name="Sub_Settings" xml:space="preserve"><value>gallery-dl, 폴더 및 데이터베이스</value></data>
+  <data name="Sub_NoDownloads" xml:space="preserve"><value>진행 중인 다운로드 없음</value></data>
+  <data name="Sub_ActiveQueued" xml:space="preserve"><value>{0}개 진행 · {1}개 대기</value></data>
+  <data name="Sub_Active" xml:space="preserve"><value>{0}개 진행</value></data>
+  <data name="Sub_Searching" xml:space="preserve"><value>{0} 검색 중…</value></data>
+  <data name="Sub_WebIdle" xml:space="preserve"><value>사이트 하나, 태그를 고르고 온라인 검색</value></data>
+  <data name="Sub_Hits" xml:space="preserve"><value>{1}에서 {0}개</value></data>
+  <data name="Empty_NoSource" xml:space="preserve"><value>출처가 선택되지 않음</value></data>
+  <data name="Empty_NoSourceHint" xml:space="preserve"><value>검색 옆의 출처를 열고 사이트를 하나 이상 선택하거나 전체를 고르세요.</value></data>
+  <data name="Empty_NoHits" xml:space="preserve"><value>결과 없음</value></data>
+  <data name="Empty_NoHitsHint" xml:space="preserve"><value>선택한 태그가 모두 일치해야 합니다. 태그를 빼거나 출처를 넓히세요.</value></data>
+  <data name="Empty_Library" xml:space="preserve"><value>라이브러리가 비어 있습니다</value></data>
+  <data name="Empty_LibraryHint" xml:space="preserve"><value>다운로드에 URL을 추가하거나 라이브러리 폴더에 있는 갤러리를 읽으세요.</value></data>
+  <data name="Dlg_PickTitles" xml:space="preserve"><value>먼저 작품을 선택하세요.</value></data>
+  <data name="Dlg_AssignTitle" xml:space="preserve"><value>분류 지정</value></data>
+  <data name="Dlg_CategoryName" xml:space="preserve"><value>분류 이름</value></data>
+  <data name="Dlg_Create" xml:space="preserve"><value>만들기</value></data>
+  <data name="Dlg_RenameTitle" xml:space="preserve"><value>분류 이름 바꾸기</value></data>
+  <data name="Dlg_NewName" xml:space="preserve"><value>새 이름</value></data>
+  <data name="Dlg_Save" xml:space="preserve"><value>저장</value></data>
+  <data name="Dlg_DeleteCategoryTitle" xml:space="preserve"><value>분류 삭제</value></data>
+  <data name="Dlg_DeleteCategoryBody" xml:space="preserve"><value>분류 “{0}”을(를) 삭제할까요?
+
+지정은 제거됩니다. 작품은 라이브러리에 남습니다.</value></data>
+  <data name="Dlg_DeleteTitlesTitle" xml:space="preserve"><value>작품 삭제</value></data>
+  <data name="Dlg_DeleteTitlesBody" xml:space="preserve"><value>작품 {0}개를 정말 삭제할까요?
+
+예는 받은 파일도 삭제합니다. 아니요는 라이브러리 항목만 삭제합니다.</value></data>
+  <data name="Dlg_Assign" xml:space="preserve"><value>지정</value></data>
+  <data name="Dlg_CollectionName" xml:space="preserve"><value>모음 이름</value></data>
+  <data name="Dl_UrlPlaceholder" xml:space="preserve"><value>URL 붙여넣기, 한 줄에 하나</value></data>
+  <data name="Dl_TitlePlaceholder" xml:space="preserve"><value>제목(선택, URL이 하나일 때)</value></data>
+  <data name="Dl_TagsPlaceholder" xml:space="preserve"><value>태그(선택, 쉼표로 구분)</value></data>
+  <data name="Dl_PasteTip" xml:space="preserve"><value>클립보드에서 URL 붙여넣기</value></data>
+  <data name="Dl_StopAll" xml:space="preserve"><value>모든 다운로드 중지</value></data>
+  <data name="Dl_ClearFinished" xml:space="preserve"><value>완료된 항목 제거</value></data>
+  <data name="Dl_LogPlaceholder" xml:space="preserve"><value>선택한 다운로드의 gallery-dl 로그가 여기에 표시됩니다.</value></data>
+  <data name="Set_Program" xml:space="preserve"><value>프로그램 파일</value></data>
+  <data name="Set_ProgramPlaceholder" xml:space="preserve"><value>비우면 자동 검색</value></data>
+  <data name="Set_Browse" xml:space="preserve"><value>찾아보기…</value></data>
+  <data name="Set_DownloadUpdate" xml:space="preserve"><value>gallery-dl 다운로드 / 업데이트</value></data>
+  <data name="Set_Check" xml:space="preserve"><value>확인</value></data>
+  <data name="Set_ExtraArgs" xml:space="preserve"><value>추가 인수</value></data>
+  <data name="Set_ExtraArgsHint" xml:space="preserve"><value>다운로드할 때마다 URL 앞에 전달됩니다. 자격 증명은 gallery-dl 설정에도 둘 수 있습니다.</value></data>
+  <data name="Set_Parallel" xml:space="preserve"><value>동시 다운로드</value></data>
+  <data name="Set_Folder" xml:space="preserve"><value>다운로드 폴더</value></data>
+  <data name="Set_Open" xml:space="preserve"><value>열기</value></data>
+  <data name="Set_ScanTip" xml:space="preserve"><value>다운로드 폴더에 있는 갤러리를 가져옵니다</value></data>
+  <data name="Set_ScanHint" xml:space="preserve"><value>아직 라이브러리에 없는 이미지 폴더와 CBZ/ZIP을 추가합니다. 제목과 태그는 ComicInfo.xml, metadata.json 또는 info.json에서 옵니다. 파일은 읽기만 합니다.</value></data>
+  <data name="Set_WebAccess" xml:space="preserve"><value>웹 접근 / CLOUDFLARE</value></data>
+  <data name="Set_WebAccessHint" xml:space="preserve"><value>E-Hentai, ExHentai 등 차단된 출처는 브라우저에서 세션을 읽습니다. 수동 쿠키는 선택입니다.</value></data>
+  <data name="Set_Browser" xml:space="preserve"><value>브라우저</value></data>
+  <data name="Set_Auto" xml:space="preserve"><value>자동</value></data>
+  <data name="Set_PasteCookies" xml:space="preserve"><value>쿠키 붙여넣기</value></data>
+  <data name="Set_ApplyCookies" xml:space="preserve"><value>쿠키 적용</value></data>
+  <data name="Set_ApplyCookiesTip" xml:space="preserve"><value>이 도메인의 저장된 쿠키를 바꿉니다</value></data>
+  <data name="Set_ClearDomain" xml:space="preserve"><value>도메인 비우기</value></data>
+  <data name="Set_CookieHint" xml:space="preserve"><value>이 값은 Netscape 쿠키 파일로 gallery-dl과 직접 검색에 전달됩니다. ipb_member_id와 ipb_pass_hash는 e-hentai.org와 exhentai.org용입니다. cf_clearance는 선택적 Cloudflare 쿠키입니다.</value></data>
+  <data name="Set_Clearance" xml:space="preserve"><value>cf_clearance(선택)</value></data>
+  <data name="Set_Flare" xml:space="preserve"><value>FlareSolverr(선택)</value></data>
+  <data name="Set_FlareHint" xml:space="preserve"><value>API가 403을 반환하면 먼저 FlareSolverr를, 그다음 gallery-dl을 사용합니다. 챌린지 쿠키는 자동으로 저장됩니다.</value></data>
+  <data name="Set_Save" xml:space="preserve"><value>설정 저장</value></data>
+  <data name="Set_Ready" xml:space="preserve"><value>준비됨</value></data>
+  <data name="Set_Blacklist" xml:space="preserve"><value>제외 태그</value></data>
+  <data name="Set_BlacklistHint" xml:space="preserve"><value>웹 검색은 이 태그를 제외합니다. nhentai와 E-Hentai는 -tag로 받고, Hitomi는 결과를 거릅니다.</value></data>
+  <data name="Set_Add" xml:space="preserve"><value>추가</value></data>
+  <data name="Set_RemoveBlacklist" xml:space="preserve"><value>제외 목록에서 태그 제거</value></data>
+  <data name="Edit_Title" xml:space="preserve"><value>항목 편집</value></data>
+  <data name="Edit_Name" xml:space="preserve"><value>제목</value></data>
+  <data name="Edit_Author" xml:space="preserve"><value>작가</value></data>
+  <data name="Edit_Optional" xml:space="preserve"><value>선택</value></data>
+</root>

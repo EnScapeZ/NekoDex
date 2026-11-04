@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public partial class EinstellungenView
 {

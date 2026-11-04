@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Zeilenweise umbrechendes, virtualisierendes Raster für Cover-Karten.</summary>
 public sealed class VirtualizingWrapPanel : VirtualizingPanel, IScrollInfo

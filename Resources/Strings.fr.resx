@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Nav_Library" xml:space="preserve"><value>Bibliothèque</value></data>
+  <data name="Nav_Favorites" xml:space="preserve"><value>Favoris</value></data>
+  <data name="Nav_Downloads" xml:space="preserve"><value>Téléchargements</value></data>
+  <data name="Nav_WebSearch" xml:space="preserve"><value>Recherche web</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Paramètres</value></data>
+  <data name="Web_Search" xml:space="preserve"><value>Rechercher en ligne</value></data>
+  <data name="Web_Cancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Web_Target" xml:space="preserve"><value>SITE CIBLE</value></data>
+  <data name="Web_Cloudflare" xml:space="preserve"><value>Cloudflare bloque la requête (HTTP 403 / gallery-dl code 2). La session est lue dans le navigateur choisi. Si cela échoue, fermez brièvement le navigateur.</value></data>
+  <data name="Web_CookieLocked" xml:space="preserve"><value>L’accès aux cookies du navigateur est bloqué. Fermez brièvement le navigateur pour que NekoDex puisse lire la session.</value></data>
+  <data name="Web_Roadmap" xml:space="preserve"><value>{0} est prévu, mais pas encore disponible.</value></data>
+  <data name="Download_New" xml:space="preserve"><value>NOUVEAU TÉLÉCHARGEMENT</value></data>
+  <data name="Download_Paste" xml:space="preserve"><value>Coller</value></data>
+  <data name="Download_ReadOnline" xml:space="preserve"><value>Lire en ligne</value></data>
+  <data name="Download_ReadOnlineTip" xml:space="preserve"><value>Lire la première adresse dans le lecteur sans enregistrer la galerie (gallery-dl -g).</value></data>
+  <data name="Download_Start" xml:space="preserve"><value>Démarrer le téléchargement</value></data>
+  <data name="Download_Queue" xml:space="preserve"><value>FILE D’ATTENTE</value></data>
+  <data name="Download_Empty" xml:space="preserve"><value>Aucun téléchargement. Ajoutez une URL ci-dessus.</value></data>
+  <data name="Download_Log" xml:space="preserve"><value>JOURNAL</value></data>
+  <data name="Download_Queued" xml:space="preserve"><value>En file d’attente</value></data>
+  <data name="Download_Connecting" xml:space="preserve"><value>Connexion et lecture des métadonnées…</value></data>
+  <data name="Download_Loaded" xml:space="preserve"><value>{0} téléchargés</value></data>
+  <data name="Download_Skipped" xml:space="preserve"><value>{0} ignorés</value></data>
+  <data name="Download_Progress" xml:space="preserve"><value>{0}/{1}{2}</value></data>
+  <data name="Download_FailedBadge" xml:space="preserve"><value>Erreur</value></data>
+  <data name="Download_Retry" xml:space="preserve"><value>Réessayer</value></data>
+  <data name="Download_CancelJob" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Download_Remove" xml:space="preserve"><value>Retirer de la liste</value></data>
+  <data name="Download_Cancelled" xml:space="preserve"><value>Annulé</value></data>
+  <data name="Download_CancelPending" xml:space="preserve"><value>Annulation…</value></data>
+  <data name="Download_Failed" xml:space="preserve"><value>Échec du téléchargement : {0}</value></data>
+  <data name="Download_NoFiles" xml:space="preserve"><value>gallery-dl n’a renvoyé aucun fichier. Cette URL est-elle prise en charge ?</value></data>
+  <data name="Download_ExitCode" xml:space="preserve"><value>gallery-dl s’est arrêté avec le code {0}.</value></data>
+  <data name="Download_Enqueued" xml:space="preserve"><value>Téléchargement mis en file.</value></data>
+  <data name="Download_EnqueuedMany" xml:space="preserve"><value>{0} téléchargements mis en file.</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Langue</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>Par défaut, la langue du système est utilisée. Un choix ici s’applique tout de suite et sera conservé au prochain démarrage de NekoDex.</value></data>
+  <data name="Reader_Streaming" xml:space="preserve"><value>Lecture en continu — les pages suivantes sont préchargées</value></data>
+  <data name="Reader_PageFailed" xml:space="preserve"><value>La page {0} n’a pas pu être chargée :
+{1}</value></data>
+  <data name="Library_Search" xml:space="preserve"><value>Titre ou artiste</value></data>
+  <data name="Library_SortRead" xml:space="preserve"><value>Dernière lecture</value></data>
+  <data name="Library_SortAdded" xml:space="preserve"><value>Date d’ajout</value></data>
+  <data name="Library_SortTitle" xml:space="preserve"><value>Titre (A–Z)</value></data>
+  <data name="Library_Empty" xml:space="preserve"><value>Aucun titre dans la bibliothèque.</value></data>
+  <data name="Lib_All" xml:space="preserve"><value>Tous</value></data>
+  <data name="Lib_Unread" xml:space="preserve"><value>Non lu</value></data>
+  <data name="Lib_Reading" xml:space="preserve"><value>En cours</value></data>
+  <data name="Lib_Done" xml:space="preserve"><value>Terminé</value></data>
+  <data name="Lib_Clear" xml:space="preserve"><value>Effacer</value></data>
+  <data name="Lib_DeleteSelected" xml:space="preserve"><value>Supprimer la sélection</value></data>
+  <data name="Lib_DeleteSelectedTip" xml:space="preserve"><value>Supprimer les titres sélectionnés</value></data>
+  <data name="Lib_SelectVisibleTip" xml:space="preserve"><value>Sélectionner tous les titres visibles</value></data>
+  <data name="Lib_Category" xml:space="preserve"><value>Catégorie</value></data>
+  <data name="Lib_AssignTip" xml:space="preserve"><value>Attribuer la sélection à une catégorie</value></data>
+  <data name="Lib_NewCategory" xml:space="preserve"><value>Nouvelle catégorie</value></data>
+  <data name="Lib_NewCategoryMenu" xml:space="preserve"><value>Nouvelle catégorie…</value></data>
+  <data name="Lib_NewCategoryTip" xml:space="preserve"><value>Nouvelle catégorie</value></data>
+  <data name="Lib_Pages" xml:space="preserve"><value>Pages</value></data>
+  <data name="Lib_From" xml:space="preserve"><value>de</value></data>
+  <data name="Lib_To" xml:space="preserve"><value>à</value></data>
+  <data name="Lib_MinPagesTip" xml:space="preserve"><value>Au moins ce nombre de pages</value></data>
+  <data name="Lib_MaxPagesTip" xml:space="preserve"><value>Au plus ce nombre de pages</value></data>
+  <data name="Lib_AssignMenuTip" xml:space="preserve"><value>Attribuer une catégorie existante ou nouvelle</value></data>
+  <data name="Lib_SelectTip" xml:space="preserve"><value>Sélectionner</value></data>
+  <data name="Lib_Rename" xml:space="preserve"><value>Renommer</value></data>
+  <data name="Lib_Delete" xml:space="preserve"><value>Supprimer</value></data>
+  <data name="Lib_ChipTip" xml:space="preserve"><value>Clic : filtrer. Clic droit : renommer ou supprimer.</value></data>
+  <data name="Lib_AllCategories" xml:space="preserve"><value>Toutes les catégories</value></data>
+  <data name="Lib_MultiOn" xml:space="preserve"><value>Sélection multiple</value></data>
+  <data name="Lib_MultiOff" xml:space="preserve"><value>Terminer la sélection</value></data>
+  <data name="Lib_PageOne" xml:space="preserve"><value>1 page</value></data>
+  <data name="Lib_PageMany" xml:space="preserve"><value>{0} pages</value></data>
+  <data name="Lib_Footer" xml:space="preserve"><value>{0} TITRES · {1} TAGS</value></data>
+  <data name="Lib_NoTags" xml:space="preserve"><value>Pas encore de tags.
+Ils apparaissent après le premier téléchargement.</value></data>
+  <data name="Lib_SearchPlaceholder" xml:space="preserve"><value>Titre, auteur ou tags…</value></data>
+  <data name="Lib_SearchTip" xml:space="preserve"><value>Recherche titre, auteur et tags. Plusieurs tags doivent tous correspondre. Un moins devant exclut un tag.</value></data>
+  <data name="Lib_ClearSearch" xml:space="preserve"><value>Effacer recherche et tags (Échap)</value></data>
+  <data name="Lib_Sources" xml:space="preserve"><value>Sources</value></data>
+  <data name="Lib_SourcesTip" xml:space="preserve"><value>Afficher ou masquer les sources</value></data>
+  <data name="Lib_AllSourcesTip" xml:space="preserve"><value>Cocher toutes les sources. Clic droit : garder seulement celle-ci.</value></data>
+  <data name="Lib_FilterActive" xml:space="preserve"><value>FILTRE ACTIF</value></data>
+  <data name="Lib_SourcesHead" xml:space="preserve"><value>SOURCES</value></data>
+  <data name="Lib_SortRecent" xml:space="preserve"><value>Ajoutés récemment</value></data>
+  <data name="Lib_SortTitleAz" xml:space="preserve"><value>Titre A–Z</value></data>
+  <data name="Lib_SortTitleZa" xml:space="preserve"><value>Titre Z–A</value></data>
+  <data name="Lib_SortPages" xml:space="preserve"><value>Plus de pages</value></data>
+  <data name="Lib_SortOpened" xml:space="preserve"><value>Ouverts récemment</value></data>
+  <data name="Lib_Refresh" xml:space="preserve"><value>Recharger la bibliothèque</value></data>
+  <data name="Lib_ActiveTagsTip" xml:space="preserve"><value>Seuls les titres qui portent tous ces tags sont affichés. Un clic retire un tag.</value></data>
+  <data name="Lib_AddDownload" xml:space="preserve"><value>Ajouter un téléchargement</value></data>
+  <data name="Lib_ScanFolder" xml:space="preserve"><value>Lire le dossier</value></data>
+  <data name="Lib_ScanTip" xml:space="preserve"><value>Ajouter les dossiers et archives CBZ déjà présents</value></data>
+  <data name="Lib_LibraryHead" xml:space="preserve"><value>BIBLIOTHÈQUE</value></data>
+  <data name="Menu_Read" xml:space="preserve"><value>Lire</value></data>
+  <data name="Menu_ReadOnline" xml:space="preserve"><value>Lire en ligne</value></data>
+  <data name="Menu_OpenDefault" xml:space="preserve"><value>Ouvrir avec l’application par défaut</value></data>
+  <data name="Menu_Explorer" xml:space="preserve"><value>Afficher dans l’Explorateur</value></data>
+  <data name="Menu_OpenSource" xml:space="preserve"><value>Ouvrir la source dans le navigateur</value></data>
+  <data name="Menu_Edit" xml:space="preserve"><value>Modifier le titre et les tags…</value></data>
+  <data name="Menu_Favorite" xml:space="preserve"><value>Basculer le favori</value></data>
+  <data name="Menu_Remove" xml:space="preserve"><value>Retirer de la bibliothèque</value></data>
+  <data name="Win_Minimize" xml:space="preserve"><value>Réduire</value></data>
+  <data name="Win_Maximize" xml:space="preserve"><value>Agrandir</value></data>
+  <data name="Win_Close" xml:space="preserve"><value>Fermer</value></data>
+  <data name="Web_Read" xml:space="preserve"><value>Lire</value></data>
+  <data name="Web_ReadTip" xml:space="preserve"><value>Ouvrir le lecteur en streaming</value></data>
+  <data name="Web_Download" xml:space="preserve"><value>Télécharger</value></data>
+  <data name="Web_DownloadTip" xml:space="preserve"><value>Lancer gallery-dl en arrière-plan, puis importer</value></data>
+  <data name="Web_TagPlaceholder" xml:space="preserve"><value>Tags ou un mot…</value></data>
+  <data name="Web_SearchTip" xml:space="preserve"><value>Recherche une source enregistrée. D’autres sites sont sous Autres sources.</value></data>
+  <data name="Web_TagBankOff" xml:space="preserve"><value>Banque de tags Hitomi désactivée</value></data>
+  <data name="Web_TagBankOn" xml:space="preserve"><value>Banque de tags Hitomi activée</value></data>
+  <data name="Web_TagBankTip" xml:space="preserve"><value>Active ou désactive la banque de tags Hitomi.</value></data>
+  <data name="Web_TagBankOffHint" xml:space="preserve"><value>La banque Hitomi est désactivée. Seuls les tags de cette source comptent.</value></data>
+  <data name="Web_TagBankOnHint" xml:space="preserve"><value>La banque Hitomi est activée. Suggestions et catalogue l’utilisent aussi.</value></data>
+  <data name="Web_ShowTags" xml:space="preserve"><value>Afficher les tags</value></data>
+  <data name="Web_HideTags" xml:space="preserve"><value>Masquer les tags</value></data>
+  <data name="Web_TagsToggleTip" xml:space="preserve"><value>Affiche ou masque seulement le catalogue de tags.</value></data>
+  <data name="Web_CatalogCollapse" xml:space="preserve"><value>Replier le catalogue de tags</value></data>
+  <data name="Web_CatalogShow" xml:space="preserve"><value>Afficher le catalogue de tags</value></data>
+  <data name="Web_RefreshTags" xml:space="preserve"><value>Actualiser les tags de cette source</value></data>
+  <data name="Web_RefreshTagsTip" xml:space="preserve"><value>Charge l’index de tags de ce site</value></data>
+  <data name="Web_Export" xml:space="preserve"><value>Exporter</value></data>
+  <data name="Web_Import" xml:space="preserve"><value>Importer</value></data>
+  <data name="Web_ExportTip" xml:space="preserve"><value>Enregistrer le catalogue de tags de ce site en JSON</value></data>
+  <data name="Web_ImportTip" xml:space="preserve"><value>Importer un catalogue JSON dans les tags de ce site</value></data>
+  <data name="Web_PopularHint" xml:space="preserve"><value>Les catégories commencent repliées. Les ouvrir charge leurs tags.</value></data>
+  <data name="Web_ShowSearch" xml:space="preserve"><value>Afficher la recherche et les tags</value></data>
+  <data name="Web_Discovery" xml:space="preserve"><value>Découverte web</value></data>
+  <data name="Web_PickTags" xml:space="preserve"><value>Choisis un ou plusieurs tags pour lancer la recherche</value></data>
+  <data name="Web_CookieSettings" xml:space="preserve"><value>Ouvrir les paramètres (cookies)</value></data>
+  <data name="Web_Searching" xml:space="preserve"><value>Recherche…</value></data>
+  <data name="Web_Back" xml:space="preserve"><value>← Retour</value></data>
+  <data name="Web_Next" xml:space="preserve"><value>Suivant →</value></data>
+  <data name="Web_Unavailable" xml:space="preserve"><value>Pas encore disponible</value></data>
+  <data name="Web_NoAccess" xml:space="preserve"><value>Pas d’accès en ligne</value></data>
+  <data name="Web_NoHitsHint" xml:space="preserve"><value>Aucun résultat pour ces tags. Essaie d’autres tags ou un autre site.</value></data>
+  <data name="Web_NoHitsStatus" xml:space="preserve"><value>Aucun résultat pour ces tags.</value></data>
+  <data name="Web_SearchFailed" xml:space="preserve"><value>Échec de la recherche</value></data>
+  <data name="Web_FoundRange" xml:space="preserve"><value>{0} résultats — affichage de {1}–{2}</value></data>
+  <data name="Web_Range" xml:space="preserve"><value>{0} résultats — {1}–{2}</value></data>
+  <data name="Web_PageOf" xml:space="preserve"><value>Page {0} sur {1}</value></data>
+  <data name="Web_Page" xml:space="preserve"><value>Page {0}</value></data>
+  <data name="Sub_Of" xml:space="preserve"><value>{0} sur {1} titres</value></data>
+  <data name="Sub_Count" xml:space="preserve"><value>{0} titres</value></data>
+  <data name="Sub_Settings" xml:space="preserve"><value>gallery-dl, dossiers et base de données</value></data>
+  <data name="Sub_NoDownloads" xml:space="preserve"><value>Aucun téléchargement actif</value></data>
+  <data name="Sub_ActiveQueued" xml:space="preserve"><value>{0} actifs · {1} en attente</value></data>
+  <data name="Sub_Active" xml:space="preserve"><value>{0} actifs</value></data>
+  <data name="Sub_Searching" xml:space="preserve"><value>Recherche sur {0}…</value></data>
+  <data name="Sub_WebIdle" xml:space="preserve"><value>Un site, choisir des tags, chercher en ligne</value></data>
+  <data name="Sub_Hits" xml:space="preserve"><value>{0} résultats sur {1}</value></data>
+  <data name="Empty_NoSource" xml:space="preserve"><value>Aucune source sélectionnée</value></data>
+  <data name="Empty_NoSourceHint" xml:space="preserve"><value>Ouvre Sources à côté de la recherche et coche au moins un site, ou choisis Tous.</value></data>
+  <data name="Empty_NoHits" xml:space="preserve"><value>Aucun résultat</value></data>
+  <data name="Empty_NoHitsHint" xml:space="preserve"><value>Tous les tags choisis doivent correspondre. Retire un tag ou élargis les sources.</value></data>
+  <data name="Empty_Library" xml:space="preserve"><value>Ta bibliothèque est vide</value></data>
+  <data name="Empty_LibraryHint" xml:space="preserve"><value>Ajoute une URL dans Téléchargements, ou lis les galeries déjà présentes dans le dossier.</value></data>
+  <data name="Dlg_PickTitles" xml:space="preserve"><value>Sélectionne d’abord des titres.</value></data>
+  <data name="Dlg_AssignTitle" xml:space="preserve"><value>Attribuer une catégorie</value></data>
+  <data name="Dlg_CategoryName" xml:space="preserve"><value>Nom de la catégorie</value></data>
+  <data name="Dlg_Create" xml:space="preserve"><value>Créer</value></data>
+  <data name="Dlg_RenameTitle" xml:space="preserve"><value>Renommer la catégorie</value></data>
+  <data name="Dlg_NewName" xml:space="preserve"><value>Nouveau nom</value></data>
+  <data name="Dlg_Save" xml:space="preserve"><value>Enregistrer</value></data>
+  <data name="Dlg_DeleteCategoryTitle" xml:space="preserve"><value>Supprimer la catégorie</value></data>
+  <data name="Dlg_DeleteCategoryBody" xml:space="preserve"><value>Supprimer la catégorie « {0} » ?
+
+Les attributions sont retirées. Les titres restent dans la bibliothèque.</value></data>
+  <data name="Dlg_DeleteTitlesTitle" xml:space="preserve"><value>Supprimer les titres</value></data>
+  <data name="Dlg_DeleteTitlesBody" xml:space="preserve"><value>Supprimer vraiment {0} titres ?
+
+Oui retire aussi les fichiers téléchargés. Non ne retire que l’entrée de la bibliothèque.</value></data>
+  <data name="Dlg_Assign" xml:space="preserve"><value>Attribuer</value></data>
+  <data name="Dlg_CollectionName" xml:space="preserve"><value>Nom de la collection</value></data>
+  <data name="Dl_UrlPlaceholder" xml:space="preserve"><value>Coller des URL, une par ligne</value></data>
+  <data name="Dl_TitlePlaceholder" xml:space="preserve"><value>Titre (facultatif, une seule URL)</value></data>
+  <data name="Dl_TagsPlaceholder" xml:space="preserve"><value>Tags (facultatif, séparés par des virgules)</value></data>
+  <data name="Dl_PasteTip" xml:space="preserve"><value>Coller une URL depuis le presse-papiers</value></data>
+  <data name="Dl_StopAll" xml:space="preserve"><value>Arrêter tous les téléchargements</value></data>
+  <data name="Dl_ClearFinished" xml:space="preserve"><value>Retirer les entrées terminées</value></data>
+  <data name="Dl_LogPlaceholder" xml:space="preserve"><value>Le journal gallery-dl du téléchargement sélectionné apparaît ici.</value></data>
+  <data name="Set_Program" xml:space="preserve"><value>Fichier du programme</value></data>
+  <data name="Set_ProgramPlaceholder" xml:space="preserve"><value>Vide = recherche automatique</value></data>
+  <data name="Set_Browse" xml:space="preserve"><value>Parcourir…</value></data>
+  <data name="Set_DownloadUpdate" xml:space="preserve"><value>Télécharger / mettre à jour gallery-dl</value></data>
+  <data name="Set_Check" xml:space="preserve"><value>Vérifier</value></data>
+  <data name="Set_ExtraArgs" xml:space="preserve"><value>Arguments supplémentaires</value></data>
+  <data name="Set_ExtraArgsHint" xml:space="preserve"><value>Transmis avant l’URL à chaque téléchargement. Les identifiants peuvent aussi être dans la config gallery-dl.</value></data>
+  <data name="Set_Parallel" xml:space="preserve"><value>Téléchargements simultanés</value></data>
+  <data name="Set_Folder" xml:space="preserve"><value>Dossier de téléchargement</value></data>
+  <data name="Set_Open" xml:space="preserve"><value>Ouvrir</value></data>
+  <data name="Set_ScanTip" xml:space="preserve"><value>Ajouter les galeries déjà présentes dans le dossier</value></data>
+  <data name="Set_ScanHint" xml:space="preserve"><value>Ajoute les dossiers d’images et les archives CBZ/ZIP qui ne sont pas encore dans la bibliothèque. Titres et tags viennent de ComicInfo.xml, metadata.json ou info.json. Les fichiers sont seulement lus.</value></data>
+  <data name="Set_WebAccess" xml:space="preserve"><value>ACCÈS WEB / CLOUDFLARE</value></data>
+  <data name="Set_WebAccessHint" xml:space="preserve"><value>E-Hentai, ExHentai et d’autres sources bloquées lisent la session dans le navigateur. Les cookies manuels restent facultatifs.</value></data>
+  <data name="Set_Browser" xml:space="preserve"><value>Navigateur</value></data>
+  <data name="Set_Auto" xml:space="preserve"><value>Automatique</value></data>
+  <data name="Set_PasteCookies" xml:space="preserve"><value>Coller les cookies</value></data>
+  <data name="Set_ApplyCookies" xml:space="preserve"><value>Appliquer les cookies</value></data>
+  <data name="Set_ApplyCookiesTip" xml:space="preserve"><value>Remplace les cookies enregistrés de ce domaine</value></data>
+  <data name="Set_ClearDomain" xml:space="preserve"><value>Vider le domaine</value></data>
+  <data name="Set_CookieHint" xml:space="preserve"><value>Ces valeurs partent vers gallery-dl et la recherche directe comme fichier de cookies Netscape. ipb_member_id et ipb_pass_hash valent pour e-hentai.org et exhentai.org. cf_clearance est le cookie Cloudflare facultatif.</value></data>
+  <data name="Set_Clearance" xml:space="preserve"><value>cf_clearance (facultatif)</value></data>
+  <data name="Set_Flare" xml:space="preserve"><value>FlareSolverr (facultatif)</value></data>
+  <data name="Set_FlareHint" xml:space="preserve"><value>Si l’API renvoie 403, FlareSolverr est interrogé d’abord, puis gallery-dl. Les cookies du défi sont enregistrés automatiquement.</value></data>
+  <data name="Set_Save" xml:space="preserve"><value>Enregistrer les paramètres</value></data>
+  <data name="Set_Ready" xml:space="preserve"><value>Prêt</value></data>
+  <data name="Set_Blacklist" xml:space="preserve"><value>TAGS EXCLUS</value></data>
+  <data name="Set_BlacklistHint" xml:space="preserve"><value>La recherche web exclut ces tags. nhentai et E-Hentai les reçoivent comme -tag, Hitomi filtre les résultats.</value></data>
+  <data name="Set_Add" xml:space="preserve"><value>Ajouter</value></data>
+  <data name="Set_RemoveBlacklist" xml:space="preserve"><value>Retirer le tag de la liste d’exclusion</value></data>
+  <data name="Edit_Title" xml:space="preserve"><value>MODIFIER L’ENTRÉE</value></data>
+  <data name="Edit_Name" xml:space="preserve"><value>Titre</value></data>
+  <data name="Edit_Author" xml:space="preserve"><value>Auteur</value></data>
+  <data name="Edit_Optional" xml:space="preserve"><value>facultatif</value></data>
+</root>

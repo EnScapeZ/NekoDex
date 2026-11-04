@@ -9,10 +9,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
-using TagDownloadProgress = MangaLibraryApp.TagDownloadProgress;
-using TagNames = MangaLibraryApp.TagNames;
-using WebSearchViewModel = MangaLibraryApp.WebSearchViewModel;
+using AppSettings = NekoDex.AppSettings;
+using TagDownloadProgress = NekoDex.TagDownloadProgress;
+using TagNames = NekoDex.TagNames;
+using WebSearchViewModel = NekoDex.WebSearchViewModel;
 
 namespace NekoDex.Services.Scrapers
 {

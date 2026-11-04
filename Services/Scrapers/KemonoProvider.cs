@@ -7,8 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
-using TagDownloadProgress = MangaLibraryApp.TagDownloadProgress;
+using AppSettings = NekoDex.AppSettings;
+using TagDownloadProgress = NekoDex.TagDownloadProgress;
 
 namespace NekoDex.Services.Scrapers
 {

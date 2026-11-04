@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Nav_Library" xml:space="preserve"><value>书库</value></data>
+  <data name="Nav_Favorites" xml:space="preserve"><value>收藏</value></data>
+  <data name="Nav_Downloads" xml:space="preserve"><value>下载</value></data>
+  <data name="Nav_WebSearch" xml:space="preserve"><value>网页搜索</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>设置</value></data>
+  <data name="Web_Search" xml:space="preserve"><value>在线搜索</value></data>
+  <data name="Web_Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="Web_Target" xml:space="preserve"><value>目标网站</value></data>
+  <data name="Web_Cloudflare" xml:space="preserve"><value>Cloudflare 阻止了请求（HTTP 403 / gallery-dl 代码 2）。会话从所选浏览器读取。如果失败，请暂时关闭浏览器。</value></data>
+  <data name="Web_CookieLocked" xml:space="preserve"><value>无法访问浏览器 Cookie。请暂时关闭浏览器，以便 NekoDex 读取会话。</value></data>
+  <data name="Web_Roadmap" xml:space="preserve"><value>{0} 已列入计划，但尚未提供。</value></data>
+  <data name="Download_New" xml:space="preserve"><value>新建下载</value></data>
+  <data name="Download_Paste" xml:space="preserve"><value>粘贴</value></data>
+  <data name="Download_ReadOnline" xml:space="preserve"><value>在线阅读</value></data>
+  <data name="Download_ReadOnlineTip" xml:space="preserve"><value>在阅读器中打开第一个地址，不保存图库（gallery-dl -g）。</value></data>
+  <data name="Download_Start" xml:space="preserve"><value>开始下载</value></data>
+  <data name="Download_Queue" xml:space="preserve"><value>队列</value></data>
+  <data name="Download_Empty" xml:space="preserve"><value>没有下载。请在上方添加网址。</value></data>
+  <data name="Download_Log" xml:space="preserve"><value>日志</value></data>
+  <data name="Download_Queued" xml:space="preserve"><value>排队中</value></data>
+  <data name="Download_Connecting" xml:space="preserve"><value>正在连接并读取元数据…</value></data>
+  <data name="Download_Loaded" xml:space="preserve"><value>已下载 {0}</value></data>
+  <data name="Download_Skipped" xml:space="preserve"><value>已跳过 {0}</value></data>
+  <data name="Download_Progress" xml:space="preserve"><value>{0}/{1}{2}</value></data>
+  <data name="Download_FailedBadge" xml:space="preserve"><value>错误</value></data>
+  <data name="Download_Retry" xml:space="preserve"><value>重试</value></data>
+  <data name="Download_CancelJob" xml:space="preserve"><value>取消</value></data>
+  <data name="Download_Remove" xml:space="preserve"><value>从列表中移除</value></data>
+  <data name="Download_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="Download_CancelPending" xml:space="preserve"><value>正在取消…</value></data>
+  <data name="Download_Failed" xml:space="preserve"><value>下载失败：{0}</value></data>
+  <data name="Download_NoFiles" xml:space="preserve"><value>gallery-dl 没有返回文件。此网址是否受支持？</value></data>
+  <data name="Download_ExitCode" xml:space="preserve"><value>gallery-dl 已退出，代码 {0}。</value></data>
+  <data name="Download_Enqueued" xml:space="preserve"><value>下载已加入队列。</value></data>
+  <data name="Download_EnqueuedMany" xml:space="preserve"><value>{0} 个下载已加入队列。</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>语言</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>默认使用系统语言。此处的选择会立即生效，并在下次启动 NekoDex 时保留。</value></data>
+  <data name="Reader_Streaming" xml:space="preserve"><value>流式阅读 — 正在预取后续页面</value></data>
+  <data name="Reader_PageFailed" xml:space="preserve"><value>无法加载第 {0} 页：
+{1}</value></data>
+  <data name="Library_Search" xml:space="preserve"><value>标题或作者</value></data>
+  <data name="Library_SortRead" xml:space="preserve"><value>最近阅读</value></data>
+  <data name="Library_SortAdded" xml:space="preserve"><value>添加日期</value></data>
+  <data name="Library_SortTitle" xml:space="preserve"><value>标题（A–Z）</value></data>
+  <data name="Library_Empty" xml:space="preserve"><value>书库中没有标题。</value></data>
+  <data name="Lib_All" xml:space="preserve"><value>全部</value></data>
+  <data name="Lib_Unread" xml:space="preserve"><value>未读</value></data>
+  <data name="Lib_Reading" xml:space="preserve"><value>在读</value></data>
+  <data name="Lib_Done" xml:space="preserve"><value>已读完</value></data>
+  <data name="Lib_Clear" xml:space="preserve"><value>取消</value></data>
+  <data name="Lib_DeleteSelected" xml:space="preserve"><value>删除所选</value></data>
+  <data name="Lib_DeleteSelectedTip" xml:space="preserve"><value>删除所选标题</value></data>
+  <data name="Lib_SelectVisibleTip" xml:space="preserve"><value>选择所有可见标题</value></data>
+  <data name="Lib_Category" xml:space="preserve"><value>分类</value></data>
+  <data name="Lib_AssignTip" xml:space="preserve"><value>将所选归入分类</value></data>
+  <data name="Lib_NewCategory" xml:space="preserve"><value>新建分类</value></data>
+  <data name="Lib_NewCategoryMenu" xml:space="preserve"><value>新建分类…</value></data>
+  <data name="Lib_NewCategoryTip" xml:space="preserve"><value>新建分类</value></data>
+  <data name="Lib_Pages" xml:space="preserve"><value>页数</value></data>
+  <data name="Lib_From" xml:space="preserve"><value>从</value></data>
+  <data name="Lib_To" xml:space="preserve"><value>到</value></data>
+  <data name="Lib_MinPagesTip" xml:space="preserve"><value>至少这么多页</value></data>
+  <data name="Lib_MaxPagesTip" xml:space="preserve"><value>至多这么多页</value></data>
+  <data name="Lib_AssignMenuTip" xml:space="preserve"><value>指定已有或新建分类</value></data>
+  <data name="Lib_SelectTip" xml:space="preserve"><value>选择</value></data>
+  <data name="Lib_Rename" xml:space="preserve"><value>重命名</value></data>
+  <data name="Lib_Delete" xml:space="preserve"><value>删除</value></data>
+  <data name="Lib_ChipTip" xml:space="preserve"><value>单击筛选。右键重命名或删除。</value></data>
+  <data name="Lib_AllCategories" xml:space="preserve"><value>所有分类</value></data>
+  <data name="Lib_MultiOn" xml:space="preserve"><value>多选</value></data>
+  <data name="Lib_MultiOff" xml:space="preserve"><value>结束选择</value></data>
+  <data name="Lib_PageOne" xml:space="preserve"><value>1 页</value></data>
+  <data name="Lib_PageMany" xml:space="preserve"><value>{0} 页</value></data>
+  <data name="Lib_Footer" xml:space="preserve"><value>{0} 个标题 · {1} 个标签</value></data>
+  <data name="Lib_NoTags" xml:space="preserve"><value>还没有标签。
+第一次下载后会出现。</value></data>
+  <data name="Lib_SearchPlaceholder" xml:space="preserve"><value>标题、作者或标签…</value></data>
+  <data name="Lib_SearchTip" xml:space="preserve"><value>搜索标题、作者和标签。多个标签必须同时匹配。前面加减号会排除标签。</value></data>
+  <data name="Lib_ClearSearch" xml:space="preserve"><value>清空搜索和标签 (Esc)</value></data>
+  <data name="Lib_Sources" xml:space="preserve"><value>来源</value></data>
+  <data name="Lib_SourcesTip" xml:space="preserve"><value>显示或隐藏来源</value></data>
+  <data name="Lib_AllSourcesTip" xml:space="preserve"><value>勾选所有来源。右键只保留这一项。</value></data>
+  <data name="Lib_FilterActive" xml:space="preserve"><value>筛选已开</value></data>
+  <data name="Lib_SourcesHead" xml:space="preserve"><value>来源</value></data>
+  <data name="Lib_SortRecent" xml:space="preserve"><value>最近添加</value></data>
+  <data name="Lib_SortTitleAz" xml:space="preserve"><value>标题 A–Z</value></data>
+  <data name="Lib_SortTitleZa" xml:space="preserve"><value>标题 Z–A</value></data>
+  <data name="Lib_SortPages" xml:space="preserve"><value>页数最多</value></data>
+  <data name="Lib_SortOpened" xml:space="preserve"><value>最近打开</value></data>
+  <data name="Lib_Refresh" xml:space="preserve"><value>重新加载书库</value></data>
+  <data name="Lib_ActiveTagsTip" xml:space="preserve"><value>只显示带有所有这些标签的作品。单击标签即可移除。</value></data>
+  <data name="Lib_AddDownload" xml:space="preserve"><value>添加下载</value></data>
+  <data name="Lib_ScanFolder" xml:space="preserve"><value>扫描文件夹</value></data>
+  <data name="Lib_ScanTip" xml:space="preserve"><value>收录书库文件夹中已有的文件夹和 CBZ 压缩包</value></data>
+  <data name="Lib_LibraryHead" xml:space="preserve"><value>书库</value></data>
+  <data name="Menu_Read" xml:space="preserve"><value>阅读</value></data>
+  <data name="Menu_ReadOnline" xml:space="preserve"><value>在线阅读</value></data>
+  <data name="Menu_OpenDefault" xml:space="preserve"><value>用默认程序打开</value></data>
+  <data name="Menu_Explorer" xml:space="preserve"><value>在资源管理器中显示</value></data>
+  <data name="Menu_OpenSource" xml:space="preserve"><value>在浏览器中打开来源</value></data>
+  <data name="Menu_Edit" xml:space="preserve"><value>编辑标题和标签…</value></data>
+  <data name="Menu_Favorite" xml:space="preserve"><value>切换收藏</value></data>
+  <data name="Menu_Remove" xml:space="preserve"><value>从书库移除</value></data>
+  <data name="Win_Minimize" xml:space="preserve"><value>最小化</value></data>
+  <data name="Win_Maximize" xml:space="preserve"><value>最大化</value></data>
+  <data name="Win_Close" xml:space="preserve"><value>关闭</value></data>
+  <data name="Web_Read" xml:space="preserve"><value>直接阅读</value></data>
+  <data name="Web_ReadTip" xml:space="preserve"><value>以在线流式模式打开阅读器</value></data>
+  <data name="Web_Download" xml:space="preserve"><value>下载</value></data>
+  <data name="Web_DownloadTip" xml:space="preserve"><value>在后台启动 gallery-dl，然后导入书库</value></data>
+  <data name="Web_TagPlaceholder" xml:space="preserve"><value>标签或搜索词…</value></data>
+  <data name="Web_SearchTip" xml:space="preserve"><value>在已注册的来源上搜索。更多网站在“更多来源”中。</value></data>
+  <data name="Web_TagBankOff" xml:space="preserve"><value>Hitomi 标签库已关</value></data>
+  <data name="Web_TagBankOn" xml:space="preserve"><value>Hitomi 标签库已开</value></data>
+  <data name="Web_TagBankTip" xml:space="preserve"><value>开关 Hitomi 标签库，用于自动完成和目录。</value></data>
+  <data name="Web_TagBankOffHint" xml:space="preserve"><value>Hitomi 标签库已关闭。只使用此来源的标签。</value></data>
+  <data name="Web_TagBankOnHint" xml:space="preserve"><value>Hitomi 标签库已打开。自动完成和目录也会使用它。</value></data>
+  <data name="Web_ShowTags" xml:space="preserve"><value>显示标签</value></data>
+  <data name="Web_HideTags" xml:space="preserve"><value>隐藏标签</value></data>
+  <data name="Web_TagsToggleTip" xml:space="preserve"><value>只显示或隐藏标签目录。</value></data>
+  <data name="Web_CatalogCollapse" xml:space="preserve"><value>折叠标签目录</value></data>
+  <data name="Web_CatalogShow" xml:space="preserve"><value>显示标签目录</value></data>
+  <data name="Web_RefreshTags" xml:space="preserve"><value>更新此来源的标签</value></data>
+  <data name="Web_RefreshTagsTip" xml:space="preserve"><value>加载此网站的标签索引</value></data>
+  <data name="Web_Export" xml:space="preserve"><value>导出</value></data>
+  <data name="Web_Import" xml:space="preserve"><value>导入</value></data>
+  <data name="Web_ExportTip" xml:space="preserve"><value>将此网站的标签目录保存为 JSON</value></data>
+  <data name="Web_ImportTip" xml:space="preserve"><value>将 JSON 目录导入此网站的标签</value></data>
+  <data name="Web_PopularHint" xml:space="preserve"><value>分类默认折叠。展开后加载该分类的标签。</value></data>
+  <data name="Web_ShowSearch" xml:space="preserve"><value>显示搜索和标签</value></data>
+  <data name="Web_Discovery" xml:space="preserve"><value>网页发现</value></data>
+  <data name="Web_PickTags" xml:space="preserve"><value>选择一个或多个标签以开始搜索</value></data>
+  <data name="Web_CookieSettings" xml:space="preserve"><value>前往设置（保存 Cookie）</value></data>
+  <data name="Web_Searching" xml:space="preserve"><value>搜索中…</value></data>
+  <data name="Web_Back" xml:space="preserve"><value>← 返回</value></data>
+  <data name="Web_Next" xml:space="preserve"><value>下一页 →</value></data>
+  <data name="Web_Unavailable" xml:space="preserve"><value>尚未提供</value></data>
+  <data name="Web_NoAccess" xml:space="preserve"><value>无法在线访问</value></data>
+  <data name="Web_NoHitsHint" xml:space="preserve"><value>这些标签没有结果。请尝试其他标签或网站。</value></data>
+  <data name="Web_NoHitsStatus" xml:space="preserve"><value>这些标签没有结果。</value></data>
+  <data name="Web_SearchFailed" xml:space="preserve"><value>搜索失败</value></data>
+  <data name="Web_FoundRange" xml:space="preserve"><value>找到 {0} 个结果 — 显示 {1}–{2}</value></data>
+  <data name="Web_Range" xml:space="preserve"><value>{0} 个结果 — 显示 {1}–{2}</value></data>
+  <data name="Web_PageOf" xml:space="preserve"><value>第 {0} 页，共 {1} 页</value></data>
+  <data name="Web_Page" xml:space="preserve"><value>第 {0} 页</value></data>
+  <data name="Sub_Of" xml:space="preserve"><value>{0} / {1} 个标题</value></data>
+  <data name="Sub_Count" xml:space="preserve"><value>{0} 个标题</value></data>
+  <data name="Sub_Settings" xml:space="preserve"><value>gallery-dl、文件夹和数据库</value></data>
+  <data name="Sub_NoDownloads" xml:space="preserve"><value>没有正在进行的下载</value></data>
+  <data name="Sub_ActiveQueued" xml:space="preserve"><value>{0} 个进行中 · {1} 个等待</value></data>
+  <data name="Sub_Active" xml:space="preserve"><value>{0} 个进行中</value></data>
+  <data name="Sub_Searching" xml:space="preserve"><value>正在搜索 {0}…</value></data>
+  <data name="Sub_WebIdle" xml:space="preserve"><value>选择一个网站和标签，然后在线搜索</value></data>
+  <data name="Sub_Hits" xml:space="preserve"><value>{1} 上有 {0} 个结果</value></data>
+  <data name="Empty_NoSource" xml:space="preserve"><value>未选择来源</value></data>
+  <data name="Empty_NoSourceHint" xml:space="preserve"><value>打开搜索框旁的“来源”，至少勾选一个网站，或选择“全部”。</value></data>
+  <data name="Empty_NoHits" xml:space="preserve"><value>没有结果</value></data>
+  <data name="Empty_NoHitsHint" xml:space="preserve"><value>所选标签必须全部匹配。去掉一个标签或放宽来源。</value></data>
+  <data name="Empty_Library" xml:space="preserve"><value>书库是空的</value></data>
+  <data name="Empty_LibraryHint" xml:space="preserve"><value>在“下载”中添加网址，或扫描书库文件夹里已有的图库。</value></data>
+  <data name="Dlg_PickTitles" xml:space="preserve"><value>请先选择标题。</value></data>
+  <data name="Dlg_AssignTitle" xml:space="preserve"><value>指定分类</value></data>
+  <data name="Dlg_CategoryName" xml:space="preserve"><value>分类名称</value></data>
+  <data name="Dlg_Create" xml:space="preserve"><value>创建</value></data>
+  <data name="Dlg_RenameTitle" xml:space="preserve"><value>重命名分类</value></data>
+  <data name="Dlg_NewName" xml:space="preserve"><value>新名称</value></data>
+  <data name="Dlg_Save" xml:space="preserve"><value>保存</value></data>
+  <data name="Dlg_DeleteCategoryTitle" xml:space="preserve"><value>删除分类</value></data>
+  <data name="Dlg_DeleteCategoryBody" xml:space="preserve"><value>删除分类“{0}”？
+
+分配会被移除。标题仍留在书库中。</value></data>
+  <data name="Dlg_DeleteTitlesTitle" xml:space="preserve"><value>删除标题</value></data>
+  <data name="Dlg_DeleteTitlesBody" xml:space="preserve"><value>确定要删除 {0} 个标题吗？
+
+“是”也会删除已下载的文件。“否”只删除书库条目。</value></data>
+  <data name="Dlg_Assign" xml:space="preserve"><value>指定</value></data>
+  <data name="Dlg_CollectionName" xml:space="preserve"><value>收藏名称</value></data>
+  <data name="Dl_UrlPlaceholder" xml:space="preserve"><value>粘贴网址，每行一个</value></data>
+  <data name="Dl_TitlePlaceholder" xml:space="preserve"><value>标题（可选，仅单个网址）</value></data>
+  <data name="Dl_TagsPlaceholder" xml:space="preserve"><value>标签（可选，用逗号分隔）</value></data>
+  <data name="Dl_PasteTip" xml:space="preserve"><value>从剪贴板粘贴网址</value></data>
+  <data name="Dl_StopAll" xml:space="preserve"><value>停止所有下载</value></data>
+  <data name="Dl_ClearFinished" xml:space="preserve"><value>移除已完成的条目</value></data>
+  <data name="Dl_LogPlaceholder" xml:space="preserve"><value>所选下载的 gallery-dl 日志会显示在这里。</value></data>
+  <data name="Set_Program" xml:space="preserve"><value>程序文件</value></data>
+  <data name="Set_ProgramPlaceholder" xml:space="preserve"><value>留空 = 自动查找</value></data>
+  <data name="Set_Browse" xml:space="preserve"><value>浏览…</value></data>
+  <data name="Set_DownloadUpdate" xml:space="preserve"><value>下载 / 更新 gallery-dl</value></data>
+  <data name="Set_Check" xml:space="preserve"><value>检查</value></data>
+  <data name="Set_ExtraArgs" xml:space="preserve"><value>附加参数</value></data>
+  <data name="Set_ExtraArgsHint" xml:space="preserve"><value>每次下载时会在网址之前传入。凭据也可以写在 gallery-dl 配置里。</value></data>
+  <data name="Set_Parallel" xml:space="preserve"><value>同时下载数</value></data>
+  <data name="Set_Folder" xml:space="preserve"><value>下载文件夹</value></data>
+  <data name="Set_Open" xml:space="preserve"><value>打开</value></data>
+  <data name="Set_ScanTip" xml:space="preserve"><value>收录下载文件夹中已有的图库</value></data>
+  <data name="Set_ScanHint" xml:space="preserve"><value>收录尚未在书库中的图片文件夹和 CBZ/ZIP。标题和标签来自 ComicInfo.xml、metadata.json 或 info.json。文件只被读取。</value></data>
+  <data name="Set_WebAccess" xml:space="preserve"><value>网页访问 / CLOUDFLARE</value></data>
+  <data name="Set_WebAccessHint" xml:space="preserve"><value>E-Hentai、ExHentai 和其他被拦截的来源会从浏览器读取会话。手动 Cookie 仍然可选。</value></data>
+  <data name="Set_Browser" xml:space="preserve"><value>浏览器</value></data>
+  <data name="Set_Auto" xml:space="preserve"><value>自动</value></data>
+  <data name="Set_PasteCookies" xml:space="preserve"><value>粘贴 Cookie</value></data>
+  <data name="Set_ApplyCookies" xml:space="preserve"><value>应用 Cookie</value></data>
+  <data name="Set_ApplyCookiesTip" xml:space="preserve"><value>替换此域名已保存的 Cookie</value></data>
+  <data name="Set_ClearDomain" xml:space="preserve"><value>清空域名</value></data>
+  <data name="Set_CookieHint" xml:space="preserve"><value>这些值会作为 Netscape Cookie 文件传给 gallery-dl 和直接搜索。ipb_member_id 和 ipb_pass_hash 用于 e-hentai.org 与 exhentai.org。cf_clearance 是可选的 Cloudflare Cookie。</value></data>
+  <data name="Set_Clearance" xml:space="preserve"><value>cf_clearance（可选）</value></data>
+  <data name="Set_Flare" xml:space="preserve"><value>FlareSolverr（可选）</value></data>
+  <data name="Set_FlareHint" xml:space="preserve"><value>如果 API 返回 403，会先询问 FlareSolverr，再使用 gallery-dl。质询 Cookie 会自动保存。</value></data>
+  <data name="Set_Save" xml:space="preserve"><value>保存设置</value></data>
+  <data name="Set_Ready" xml:space="preserve"><value>就绪</value></data>
+  <data name="Set_Blacklist" xml:space="preserve"><value>排除的标签</value></data>
+  <data name="Set_BlacklistHint" xml:space="preserve"><value>网页搜索会排除这些标签。nhentai 和 E-Hentai 会收到 -tag，Hitomi 会过滤结果。</value></data>
+  <data name="Set_Add" xml:space="preserve"><value>添加</value></data>
+  <data name="Set_RemoveBlacklist" xml:space="preserve"><value>从排除列表移除标签</value></data>
+  <data name="Edit_Title" xml:space="preserve"><value>编辑条目</value></data>
+  <data name="Edit_Name" xml:space="preserve"><value>标题</value></data>
+  <data name="Edit_Author" xml:space="preserve"><value>作者</value></data>
+  <data name="Edit_Optional" xml:space="preserve"><value>可选</value></data>
+</root>

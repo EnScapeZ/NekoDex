@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Liest Fortschritt, Geschwindigkeit und frühe Abbrüche aus einer gallery-dl-Zeile.</summary>
 public static class DownloadsViewModel

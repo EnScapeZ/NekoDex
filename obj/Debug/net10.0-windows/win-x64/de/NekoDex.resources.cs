@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NekoDex")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute(" ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fa3750cd6c0765fc32c9f27372bb998567438f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("NekoDex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NekoDex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

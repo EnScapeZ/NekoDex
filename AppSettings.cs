@@ -1,4 +1,4 @@
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Gespeicherte Anwendungseinstellungen aus der Tabelle <c>settings</c>.</summary>
 public class AppSettings
@@ -20,7 +20,7 @@ public class AppSettings
     /// </summary>
     public string PreferredBrowser { get; set; } = "auto";
 
-    /// <summary><c>auto</c>, <c>en</c> oder <c>de</c>.</summary>
+    /// <summary><c>auto</c> folgt der Systemsprache, sonst ein Code aus <see cref="LanguageManager.Choices"/>.</summary>
     public string UiLanguage { get; set; } = "auto";
 
     /// <summary>Autovervollständigung und Katalog ergänzen die Hitomi-Tagbank, wenn der Schalter in der Websuche an ist.</summary>
@@ -51,8 +51,8 @@ public class AppSettings
 
     private static string NormalizeLanguage(string? value)
     {
-        var text = (value ?? string.Empty).Trim().ToLowerInvariant();
-        return text is "en" or "de" ? text : "auto";
+        var canonical = LanguageManager.Canonical(value);
+        return string.IsNullOrEmpty(canonical) || canonical == "auto" ? "auto" : canonical;
     }
 
     public void Save(Database db)

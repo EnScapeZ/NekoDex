@@ -8,9 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using NekoDex.Core.Enums;
 using NekoDex.Core.Models;
-using AppSettings = MangaLibraryApp.AppSettings;
-using TagDownloadProgress = MangaLibraryApp.TagDownloadProgress;
-using WebSearchViewModel = MangaLibraryApp.WebSearchViewModel;
+using AppSettings = NekoDex.AppSettings;
+using TagDownloadProgress = NekoDex.TagDownloadProgress;
+using WebSearchViewModel = NekoDex.WebSearchViewModel;
 
 namespace NekoDex.Services.Scrapers
 {
@@ -39,7 +39,7 @@ namespace NekoDex.Services.Scrapers
         public WebSearchViewModel? TagBlacklist { get; set; }
 
         /// <summary>Übernimmt gespeicherte Sitzungs-Cookies für asmhentai.com, falls welche vorliegen.</summary>
-        public void ApplySessionCookies(IEnumerable<MangaLibraryApp.StoredHttpCookie>? cookies)
+        public void ApplySessionCookies(IEnumerable<NekoDex.StoredHttpCookie>? cookies)
         {
             if (cookies is null)
                 return;

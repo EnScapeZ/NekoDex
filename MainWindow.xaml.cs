@@ -20,7 +20,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NekoDex.Services.Scrapers;
 using Microsoft.Win32;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 // ════════════════════════════════════════════════════════════════════════
 //  Hauptfenster: Navigation · Tag-Suche · gallery-dl-Steuerung
@@ -292,7 +292,7 @@ public partial class MainWindow : Window
         if (active > 0)
         {
             var answer = MessageBox.Show(this,
-                $"Es {(active == 1 ? "läuft noch 1 Download" : $"laufen noch {active} Downloads")}.\nBeenden und alle Downloads abbrechen?",
+                active == 1 ? T("St_QuitOne") : T("St_QuitMany", active),
                 "NekoDex", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (answer != MessageBoxResult.Yes)
             {
@@ -376,9 +376,11 @@ public partial class MainWindow : Window
         SelectComboItem(ParallelBox, _maxParallel.ToString());
         SelectComboItem(SortBox, _sort.ToString());
         SelectComboItem(PreferredBrowserBox, string.IsNullOrWhiteSpace(_settings.PreferredBrowser) ? "auto" : _settings.PreferredBrowser);
+        FillLanguageBox();
         SelectComboItem(LanguageBox, string.IsNullOrWhiteSpace(_settings.UiLanguage) ? "auto" : _settings.UiLanguage);
         LanguageManager.Instance.Apply(_settings.UiLanguage);
         _languageReady = true;
+        LanguageManager.Instance.Changed += RefreshLocalizedChrome;
         BlacklistSettings.Attach(new LibraryRepository(_db));
 
         _flareSolverrUrl = _settings.FlareSolverrUrl;
@@ -394,6 +396,14 @@ public partial class MainWindow : Window
         {
             App.Log("Cookie-Einstellungen: " + App.Flatten(ex));
         }
+    }
+
+    private void FillLanguageBox()
+    {
+        LanguageBox.Items.Clear();
+        LanguageBox.Items.Add(new ComboBoxItem { Content = "System", Tag = "auto" });
+        foreach (var (code, name) in LanguageManager.Choices)
+            LanguageBox.Items.Add(new ComboBoxItem { Content = name, Tag = code });
     }
 
     private static void SelectComboItem(ComboBox box, string tag)
@@ -446,10 +456,10 @@ public partial class MainWindow : Window
 
         PageTitleText.Text = page switch
         {
-            AppPage.Downloads => "Downloads",
-            AppPage.WebSearch => "Web Search",
-            AppPage.Settings => "Einstellungen",
-            _ => "Bibliothek",
+            AppPage.Downloads => T("Nav_Downloads"),
+            AppPage.WebSearch => T("Nav_WebSearch"),
+            AppPage.Settings => T("Nav_Settings"),
+            _ => T("Nav_Library"),
         };
         BreadcrumbText.Text = "/  " + PageTitleText.Text.ToUpperInvariant();
         PageHeader.Margin = isWeb
@@ -478,7 +488,6 @@ public partial class MainWindow : Window
         {
             TagList.ItemTemplate = (DataTemplate)FindResource("TagCategoryTemplate");
             TagList.ItemsSource = _tagGroups;
-            NoTagsText.Text = "Noch keine Tags.\nSie erscheinen nach dem ersten Download.";
             NoTagsText.Visibility = _tagGroups.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
             TagCountText.Text = _tagChips.Count > 0 ? _tagChips.Count.ToString() : string.Empty;
         }
@@ -505,11 +514,11 @@ public partial class MainWindow : Window
         PageSubtitleText.Text = _page switch
         {
             AppPage.Library => HasActiveSearch
-                ? $"{_results.Count} von {_totalCount} Titeln"
-                : $"{_totalCount} {(_totalCount == 1 ? "Titel" : "Titel")}",
+                ? T("Sub_Of", _results.Count, _totalCount)
+                : T("Sub_Count", _totalCount),
             AppPage.Downloads => DownloadSummary(),
             AppPage.WebSearch => WebSearchSummary(),
-            _ => "gallery-dl, Ordner und Datenbank",
+            _ => T("Sub_Settings"),
         };
     }
 
@@ -518,17 +527,17 @@ public partial class MainWindow : Window
         var running = _jobs.Count(j => j.Status == JobStatus.Running);
         var queued = _jobs.Count(j => j.Status == JobStatus.Queued);
         if (running + queued == 0)
-            return "Keine aktiven Downloads";
-        return queued > 0 ? $"{running} aktiv · {queued} wartend" : $"{running} aktiv";
+            return T("Sub_NoDownloads");
+        return queued > 0 ? T("Sub_ActiveQueued", running, queued) : T("Sub_Active", running);
     }
 
     private string WebSearchSummary()
     {
         if (_webSearching)
-            return "Suche auf " + SourceCatalog.DisplayName(_webSource) + " …";
+            return T("Sub_Searching", SourceCatalog.DisplayName(_webSource));
         return _webHits.Count == 0
-            ? "Eine Website, Tags wählen, online suchen"
-            : $"{_webHits.Count} Treffer auf {SourceCatalog.DisplayName(_webSource)}";
+            ? T("Sub_WebIdle")
+            : T("Sub_Hits", _webHits.Count, SourceCatalog.DisplayName(_webSource));
     }
 
     // ════════════════════════════════════════════════════════════════════
@@ -1105,7 +1114,7 @@ public partial class MainWindow : Window
             _totalCount = total;
             NavLibraryCount.Text = total > 0 ? total.ToString() : string.Empty;
             TagCountText.Text = tags > 0 ? tags.ToString() : string.Empty;
-            FooterStats.Text = $"{total} TITEL · {tags} TAGS";
+            FooterStats.Text = T("Lib_Footer", total, tags);
             UpdateSubtitle();
         }
         catch (Exception ex)
@@ -1127,20 +1136,20 @@ public partial class MainWindow : Window
         if (_sourceFilters.Count > 0 && _sourceFilters.All(s => !s.IsSelected))
         {
             EmptyIcon.Text = "\uE71C";
-            EmptyTitleText.Text = "Keine Quelle ausgewählt";
-            EmptyHintText.Text = "Öffne „Quellen“ neben der Suchleiste und hake mindestens eine Seite an – oder wähle „Alle“.";
+            EmptyTitleText.Text = T("Empty_NoSource");
+            EmptyHintText.Text = T("Empty_NoSourceHint");
         }
         else if (HasActiveSearch)
         {
             EmptyIcon.Text = "\uE721";
-            EmptyTitleText.Text = "Keine Treffer";
-            EmptyHintText.Text = "Es müssen alle gewählten Tags zutreffen. Entferne einen Tag-Chip unter der Suchleiste oder lockere die Quellen-Auswahl.";
+            EmptyTitleText.Text = T("Empty_NoHits");
+            EmptyHintText.Text = T("Empty_NoHitsHint");
         }
         else
         {
             EmptyIcon.Text = "\uE8F1";
-            EmptyTitleText.Text = "Deine Bibliothek ist leer";
-            EmptyHintText.Text = "Füge unter „Downloads“ eine URL hinzu – oder lies bereits vorhandene Galerien aus dem Bibliotheksordner ein.";
+            EmptyTitleText.Text = T("Empty_Library");
+            EmptyHintText.Text = T("Empty_LibraryHint");
             EmptyActionButton.Visibility = Visibility.Visible;
             EmptyScanButton.Visibility = Visibility.Visible;
         }
@@ -1222,7 +1231,7 @@ public partial class MainWindow : Window
 
         if (string.IsNullOrWhiteSpace(tile.Manga.SourceUrl))
         {
-            SetStatus("Für diesen Eintrag ist keine Quell-URL gespeichert – online lesen ist nicht möglich.", StatusKind.Warning);
+            SetStatus(T("St_NoSourceUrlRead"), StatusKind.Warning);
             return;
         }
 
@@ -1240,12 +1249,12 @@ public partial class MainWindow : Window
 
         if (!string.IsNullOrWhiteSpace(tile.Manga.SourceUrl))
         {
-            SetStatus("Lokale Dateien nicht gefunden – lese online …");
+            SetStatus(T("St_ReadOnlineFallback"));
             await ReadOnlineAsync(tile.Manga.SourceUrl, tile.Title);
         }
         else
         {
-            SetStatus("Die Dateien dieses Eintrags wurden nicht gefunden (Ordner verschoben oder gelöscht?).", StatusKind.Warning);
+            SetStatus(T("St_FilesMissing"), StatusKind.Warning);
         }
     }
 
@@ -1446,12 +1455,12 @@ public partial class MainWindow : Window
 
         if (!string.IsNullOrWhiteSpace(item.SourceUrl))
         {
-            SetStatus("Lokale Dateien nicht gefunden – lese online …");
+            SetStatus(T("St_ReadOnlineFallback"));
             await ReadOnlineAsync(item.SourceUrl, item.Title);
         }
         else
         {
-            SetStatus("Die Dateien dieses Eintrags wurden nicht gefunden (Ordner verschoben oder gelöscht?).", StatusKind.Warning);
+            SetStatus(T("St_FilesMissing"), StatusKind.Warning);
         }
     }
 
@@ -1560,7 +1569,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        SetStatus("Suche gallery-dl …");
+        SetStatus(T("St_FindGalleryDl"));
         var (command, problem) = await ResolveGalleryDlAsync();
         if (command is null)
         {
@@ -1631,7 +1640,7 @@ public partial class MainWindow : Window
         var isFolder = !string.IsNullOrWhiteSpace(path) && Directory.Exists(path);
         if (!isFile && !isFolder)
         {
-            SetStatus("Der Ordner bzw. das Archiv dieses Eintrags existiert nicht mehr.", StatusKind.Warning);
+            SetStatus(T("St_FolderGone"), StatusKind.Warning);
             return;
         }
 
@@ -1660,7 +1669,7 @@ public partial class MainWindow : Window
             && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
             OpenWithShell(uri.AbsoluteUri);
         else
-            SetStatus("Für diesen Eintrag ist keine Quell-URL gespeichert.", StatusKind.Warning);
+            SetStatus(T("St_NoSourceUrl"), StatusKind.Warning);
     }
 
     private async void MenuRemove_Click(object sender, RoutedEventArgs e)
@@ -1786,7 +1795,7 @@ public partial class MainWindow : Window
         {
             if (!Clipboard.ContainsText())
             {
-                SetStatus("Die Zwischenablage enthält keinen Text.", StatusKind.Warning);
+                SetStatus(T("St_ClipboardEmpty"), StatusKind.Warning);
                 return;
             }
 
@@ -1797,7 +1806,7 @@ public partial class MainWindow : Window
         }
         catch (Exception ex) when (ex is COMException or ExternalException)
         {
-            SetStatus("Zugriff auf die Zwischenablage nicht möglich – bitte erneut versuchen.", StatusKind.Warning);
+            SetStatus(T("St_ClipboardDenied"), StatusKind.Warning);
         }
     }
 
@@ -2174,7 +2183,7 @@ public partial class MainWindow : Window
 
         try
         {
-            SetStatus("Scanne den Bibliotheksordner …");
+            SetStatus(T("St_Scanning"));
 
             // Meldet den Fortschritt im UI-Thread zurück (Progress<T> bindet sich an den aktuellen Kontext).
             var progress = new Progress<(int Done, int Total)>(p =>
@@ -2202,7 +2211,7 @@ public partial class MainWindow : Window
             }
             else
             {
-                SetStatus("Bereit");
+                SetStatus(T("Set_Ready"));
             }
         }
         catch (Exception ex)
@@ -2290,30 +2299,30 @@ public partial class MainWindow : Window
         try
         {
             GalleryDlStatusText.Foreground = (Brush)FindResource("MutedBrush");
-            GalleryDlStatusText.Text = "Prüfe gallery-dl …";
+            GalleryDlStatusText.Text = T("St_CheckGalleryDl");
 
             var (command, problem) = await ResolveGalleryDlAsync(forceRefresh: true);
             if (command is null)
             {
                 GalleryDlStatusText.Foreground = (Brush)FindResource("DangerBrush");
-                GalleryDlStatusText.Text = "✖  " + problem + "  Installation: pip install -U gallery-dl  oder gallery-dl.exe herunterladen und hier auswählen.";
+                GalleryDlStatusText.Text = "✖  " + problem + "  " + T("St_GalleryDlInstall");
                 if (silent)
-                    SetStatus("gallery-dl nicht gefunden – bitte unter „Einstellungen“ einrichten.", StatusKind.Warning);
+                    SetStatus(T("St_GalleryDlMissing"), StatusKind.Warning);
             }
             else
             {
                 GalleryDlStatusText.Foreground = (Brush)FindResource("SuccessBrush");
                 GalleryDlStatusText.Text = "✔  " + command.Description;
                 if (!silent)
-                    SetStatus("gallery-dl ist einsatzbereit.", StatusKind.Success);
+                    SetStatus(T("St_GalleryDlReady"), StatusKind.Success);
             }
         }
         catch (Exception ex)
         {
             GalleryDlStatusText.Foreground = (Brush)FindResource("DangerBrush");
-            GalleryDlStatusText.Text = "✖  gallery-dl konnte nicht geprüft werden: " + ex.Message;
+            GalleryDlStatusText.Text = T("St_GalleryDlCheckFailed", ex.Message);
             if (!silent)
-                SetStatus("gallery-dl-Prüfung fehlgeschlagen: " + ex.Message, StatusKind.Error);
+                SetStatus(T("St_GalleryDlCheckFailed", ex.Message), StatusKind.Error);
         }
     }
 
@@ -2353,7 +2362,7 @@ public partial class MainWindow : Window
             if (option is { IsPlaceholder: false })
             {
                 var message = LanguageManager.Instance.Get("Web_Roadmap", option.Title);
-                WebDiscoveryPanelTitle.Text = "Noch nicht verfügbar";
+                WebDiscoveryPanelTitle.Text = T("Web_Unavailable");
                 WebDiscoveryPanelHint.Text = message;
                 if (_webHits.Count == 0)
                     ApplyWebDiscoveryVisibility();
@@ -2386,11 +2395,11 @@ public partial class MainWindow : Window
             _webTags.Clear();
             _webHits.Clear();
             CloseWebSuggestions();
-            WebDiscoveryPanelTitle.Text = "Web Discovery";
-            WebDiscoveryPanelHint.Text = "Wähle ein Tag oder mehrere aus um die Suche zu starten";
+            WebDiscoveryPanelTitle.Text = T("Web_Discovery");
+            WebDiscoveryPanelHint.Text = T("Web_PickTags");
             ApplyWebDiscoveryVisibility();
             UpdateSubtitle();
-            SetStatus("Ziel: " + SourceCatalog.DisplayName(_webSource) + " – nur Online-Tags dieser Website.");
+            SetStatus(T("St_WebTarget", SourceCatalog.DisplayName(_webSource)));
         }
 
         _ = RefreshWebPopularTagsAsync();
@@ -2424,13 +2433,11 @@ public partial class MainWindow : Window
             return;
 
         var on = HitomiTagBankToggle.IsChecked == true;
-        HitomiTagBankToggle.Content = on ? "Hitomi-Tagbank an" : "Hitomi-Tagbank aus";
+        HitomiTagBankToggle.Content = on ? T("Web_TagBankOn") : T("Web_TagBankOff");
         if (HitomiTagBankStatus is null)
             return;
 
-        HitomiTagBankStatus.Text = on
-            ? "Hitomi-Tagbank ist an. Autovervollständigung und Katalog ergänzen Hitomi."
-            : "Hitomi-Tagbank ist aus. Es gelten nur die Tags dieser Quelle.";
+        HitomiTagBankStatus.Text = on ? T("Web_TagBankOnHint") : T("Web_TagBankOffHint");
         HitomiTagBankStatus.Foreground = (Brush)FindResource(on ? "AccentBrush" : "MutedBrush");
     }
 
@@ -2441,7 +2448,7 @@ public partial class MainWindow : Window
         GalleryDlDownloadProgress.IsIndeterminate = true;
         GalleryDlDownloadProgress.Value = 0;
         GalleryDlStatusText.Foreground = (Brush)FindResource("MutedBrush");
-        GalleryDlStatusText.Text = "Lade gallery-dl …";
+        GalleryDlStatusText.Text = T("St_LoadingGalleryDl");
 
         var progress = new Progress<GalleryDlDownloadUpdate>(update =>
         {
@@ -2470,7 +2477,7 @@ public partial class MainWindow : Window
         {
             GalleryDlStatusText.Foreground = (Brush)FindResource("DangerBrush");
             GalleryDlStatusText.Text = "✖  " + ex.Message;
-            SetStatus("gallery-dl-Download fehlgeschlagen: " + ex.Message, StatusKind.Error);
+            SetStatus(T("St_GalleryDlDownloadFailed", ex.Message), StatusKind.Error);
         }
         finally
         {
@@ -2485,8 +2492,8 @@ public partial class MainWindow : Window
         if (WebCatalogExpanderText is null || sender is not Expander expander)
             return;
         WebCatalogExpanderText.Text = expander.IsExpanded
-            ? "🏷️  Tag-Katalog einklappen"
-            : "🏷️  Tag-Katalog anzeigen";
+            ? T("Web_CatalogCollapse")
+            : T("Web_CatalogShow");
         ApplyWebHeaderBudget();
     }
 
@@ -2497,7 +2504,7 @@ public partial class MainWindow : Window
 
         var show = WebTagsToggle.IsChecked == true;
         TagCatalogContainer.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
-        WebTagsToggle.Content = show ? "🏷️  Tags ausblenden" : "🏷️  Tags anzeigen";
+        WebTagsToggle.Content = show ? T("Web_HideTags") : T("Web_ShowTags");
         if (!show)
             CloseWebSuggestions();
         ApplyWebHeaderBudget();
@@ -2534,6 +2541,8 @@ public partial class MainWindow : Window
         var from = CurrentWebHeaderHeight();
         _webHeaderCollapsed = true;
         WebSearchHeader.Margin = new Thickness(0);
+        if (WebSearchHeaderGrip is not null)
+            WebSearchHeaderGrip.IsHitTestVisible = true;
         if (WebSearchHeaderGripMark is not null)
             WebSearchHeaderGripMark.Opacity = 0.9;
         AnimateWebHeader(from, 0, animate);
@@ -2545,6 +2554,8 @@ public partial class MainWindow : Window
             return;
         var from = CurrentWebHeaderHeight();
         WebSearchHeader.Margin = new Thickness(0, 0, 0, 4);
+        if (WebSearchHeaderGrip is not null)
+            WebSearchHeaderGrip.IsHitTestVisible = false;
         if (WebSearchHeaderGripMark is not null)
             WebSearchHeaderGripMark.Opacity = 0;
         var target = MeasureWebHeaderHeight(from);
@@ -3183,7 +3194,7 @@ public partial class MainWindow : Window
         if (reset)
         {
             var provider = TagQuery.FromSite(_webSource);
-            if (provider == SourceProvider.Ehentai || _activeScraper is EHentaiStyleProvider)
+            if (provider == TagDialect.Ehentai || _activeScraper is EHentaiStyleProvider)
             {
                 var pieces = new List<string>(tags);
                 if (extra.Length > 0)
@@ -3200,7 +3211,7 @@ public partial class MainWindow : Window
         }
         if (tags.Count == 0 && extra.Length == 0)
         {
-            SetStatus("Bitte mindestens einen Tag oder ein Suchwort angeben.", StatusKind.Warning);
+            SetStatus(T("St_NeedTerm"), StatusKind.Warning);
             WebSearchTagBox.Focus();
             return;
         }
@@ -3216,7 +3227,7 @@ public partial class MainWindow : Window
 
         if (_webSource == "exhentai")
         {
-            SetStatus("ExHentai ist vorübergehend nicht auswählbar. Bitte E-Hentai verwenden.", StatusKind.Warning);
+            SetStatus(T("St_ExUnavailable"), StatusKind.Warning);
             return;
         }
 
@@ -3367,24 +3378,22 @@ public partial class MainWindow : Window
             if (endOfResults)
             {
                 AppendSessionLog("— keine weiteren Treffer —");
-                SetStatus("Keine weiteren Treffer.", StatusKind.Info);
+                SetStatus(T("St_NoMore"), StatusKind.Info);
             }
             else if (_webHits.Count == 0 && !string.IsNullOrWhiteSpace(loaded?.BlockStatus))
             {
-                WebDiscoveryPanelTitle.Text = "Kein Online-Zugriff";
+                WebDiscoveryPanelTitle.Text = T("Web_NoAccess");
                 WebDiscoveryPanelHint.Text = loaded.Diagnostic ?? loaded.BlockStatus;
                 AppendSessionLog("! " + FlattenLogLine(loaded.Diagnostic ?? loaded.BlockStatus));
                 SetStatus(loaded.BlockStatus, StatusKind.Error);
             }
             else if (_webHits.Count == 0)
             {
-                WebDiscoveryPanelTitle.Text = "Keine Treffer";
+                WebDiscoveryPanelTitle.Text = T("Empty_NoHits");
+                WebDiscoveryPanelHint.Text = T("Web_NoHitsHint");
                 var diagnostic = loaded?.Diagnostic;
-                WebDiscoveryPanelHint.Text = string.IsNullOrWhiteSpace(diagnostic)
-                    ? "Die API hat zu dieser Suche keine Galerien geliefert. Andere Tags oder eine andere Website versuchen."
-                    : diagnostic;
-                AppendSessionLog(string.IsNullOrWhiteSpace(diagnostic) ? "— keine Treffer —" : "! " + FlattenLogLine(diagnostic));
-                SetStatus("Keine Online-Treffer für diese Suche.", StatusKind.Warning);
+                AppendSessionLog(string.IsNullOrWhiteSpace(diagnostic) ? "— keine Treffer —" : "— " + FlattenLogLine(diagnostic));
+                SetStatus(T("Web_NoHitsStatus"), StatusKind.Info);
             }
             else
             {
@@ -3395,24 +3404,24 @@ public partial class MainWindow : Window
         catch (OperationCanceledException)
         {
             AppendSessionLog("— abgebrochen —");
-            SetStatus("Online-Suche abgebrochen.", StatusKind.Warning);
+            SetStatus(T("St_SearchCancelled"), StatusKind.Warning);
         }
         catch (Exception ex) when (ex is ApiSearchException or ArgumentException or IOException or HttpRequestException or InvalidOperationException)
         {
             if (ct.IsCancellationRequested)
             {
                 AppendSessionLog("— abgebrochen —");
-                SetStatus("Online-Suche abgebrochen.", StatusKind.Warning);
+                SetStatus(T("St_SearchCancelled"), StatusKind.Warning);
             }
             else
             {
                 AppendSessionLog("! " + FlattenLogLine(ex.Message));
-                SetStatus("Online-Suche fehlgeschlagen: " + ex.Message, StatusKind.Error);
+                SetStatus(T("St_SearchFailed", ex.Message), StatusKind.Error);
                 if (_webHits.Count == 0)
                 {
                     var locked = IsBrowserCookieLock(ex.Message);
                     var cookies = locked || NeedsCookieSetup(ex.Message);
-                    WebDiscoveryPanelTitle.Text = "Suche fehlgeschlagen";
+                    WebDiscoveryPanelTitle.Text = T("Web_SearchFailed");
                     WebDiscoveryPanelHint.Text = locked
                         ? GalleryDl.BrowserCookieLockedMessage
                         : cookies
@@ -3427,10 +3436,10 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             AppendSessionLog("! " + FlattenLogLine(ex.Message));
-            SetStatus("Online-Suche fehlgeschlagen: " + ex.Message, StatusKind.Error);
+            SetStatus(T("St_SearchFailed", ex.Message), StatusKind.Error);
             if (_webHits.Count == 0 && (IsBrowserCookieLock(ex.Message) || NeedsCookieSetup(ex.Message)))
             {
-                WebDiscoveryPanelTitle.Text = "Suche fehlgeschlagen";
+                WebDiscoveryPanelTitle.Text = T("Web_SearchFailed");
                 WebDiscoveryPanelHint.Text = IsBrowserCookieLock(ex.Message)
                     ? GalleryDl.BrowserCookieLockedMessage
                     : LanguageManager.Instance.Get("Web_Cloudflare");
@@ -3613,11 +3622,11 @@ public partial class MainWindow : Window
         var end = _webRangeStart + _webHits.Count - 1;
         var total = _webApiTotals ? _webTotal : null;
         WebSearchCountText.Text = total is int count
-            ? count.ToString("N0") + " Ergebnisse gefunden – Zeige " + _webRangeStart.ToString("N0") + "–" + end.ToString("N0")
-            : _webHits.Count.ToString("N0") + " Ergebnisse – Zeige " + _webRangeStart.ToString("N0") + "–" + end.ToString("N0");
+            ? T("Web_FoundRange", count.ToString("N0"), _webRangeStart.ToString("N0"), end.ToString("N0"))
+            : T("Web_Range", _webHits.Count.ToString("N0"), _webRangeStart.ToString("N0"), end.ToString("N0"));
         WebSearchPageText.Text = _webApiTotals && _webTotalPages is int pages
-            ? "Seite " + _webPage + " von " + pages
-            : "Seite " + _webPage;
+            ? T("Web_PageOf", _webPage, pages)
+            : T("Web_Page", _webPage);
         WebSearchCountText.Visibility = Visibility.Visible;
         WebSearchPager.Visibility = Visibility.Visible;
         WebSearchPrevButton.IsEnabled = _webPage > 1;
@@ -3890,7 +3899,7 @@ public partial class MainWindow : Window
         }
         catch (Exception)
         {
-            SetStatus("Der Download-Ordner ist kein gültiger Pfad.", StatusKind.Error);
+            SetStatus(T("St_BadFolder"), StatusKind.Error);
             return;
         }
 
@@ -3934,7 +3943,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        SetStatus("Einstellungen gespeichert.", StatusKind.Success);
+        SetStatus(T("St_SettingsSaved"), StatusKind.Success);
         ApplySessionCookiesToApi();
         await CheckGalleryDlAsync(silent: false);
         PumpQueue(); // ein höheres Limit kann wartende Jobs freigeben
@@ -4151,6 +4160,39 @@ public partial class MainWindow : Window
     // ════════════════════════════════════════════════════════════════════
     //  Hilfsfunktionen
     // ════════════════════════════════════════════════════════════════════
+
+    private static string T(string key, params object[] args) => LanguageManager.Instance.Get(key, args);
+
+    private void RefreshLocalizedChrome()
+    {
+        if (!_ready)
+            return;
+        Dispatcher.BeginInvoke(() =>
+        {
+            PageTitleText.Text = _page switch
+            {
+                AppPage.Downloads => T("Nav_Downloads"),
+                AppPage.WebSearch => T("Nav_WebSearch"),
+                AppPage.Settings => T("Nav_Settings"),
+                _ => T("Nav_Library"),
+            };
+            BreadcrumbText.Text = "/  " + PageTitleText.Text.ToUpperInvariant();
+            UpdateSubtitle();
+            UpdateEmptyState();
+            UpdateHitomiTagBankStatus();
+            if (WebTagsToggle is not null)
+                WebTagsToggle_Changed(WebTagsToggle, new RoutedEventArgs());
+            if (WebCatalogExpander is not null)
+                WebCatalogExpander_Changed(WebCatalogExpander, new RoutedEventArgs());
+            UpdateWebSearchCount();
+            if (_webHits.Count == 0 && !_webSearching)
+            {
+                var searched = _webSearchTags.Count > 0 || _webSearchExtra.Length > 0;
+                WebDiscoveryPanelTitle.Text = searched ? T("Empty_NoHits") : T("Web_Discovery");
+                WebDiscoveryPanelHint.Text = searched ? T("Web_NoHitsHint") : T("Web_PickTags");
+            }
+        });
+    }
 
     private void SetStatus(string message, StatusKind kind = StatusKind.Info)
     {

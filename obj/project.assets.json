@@ -831,9 +831,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Scraper\\MangaLibraryApp\\MangaLibraryApp.csproj",
+      "projectUniqueName": "G:\\Scraper\\MangaLibraryApp\\NekoDex.csproj",
       "projectName": "NekoDex",
-      "projectPath": "G:\\Scraper\\MangaLibraryApp\\MangaLibraryApp.csproj",
+      "projectPath": "G:\\Scraper\\MangaLibraryApp\\NekoDex.csproj",
       "packagesPath": "C:\\Users\\EnScapeZ\\.nuget\\packages\\",
       "outputPath": "G:\\Scraper\\MangaLibraryApp\\obj\\",
       "projectStyle": "PackageReference",

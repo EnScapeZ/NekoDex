@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Liest und schreibt Bibliotheks-Metadaten in <c>manga_library.db</c>.</summary>
 public sealed class LibraryRepository

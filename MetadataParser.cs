@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using Microsoft.Data.Sqlite;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Was ein Metadaten-Parser aus JSON-/XML-Dateien herausliest.</summary>
 /// <param name="Source">Kennung aus <see cref="SourceCatalog"/> („nhentai“ …) oder „other“.</param>

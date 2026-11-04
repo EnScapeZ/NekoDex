@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Wechselt die Oberflächensprache zur Laufzeit und liefert die Texte aus <c>Resources/Strings.resx</c>.</summary>
 public sealed class LanguageManager : INotifyPropertyChanged
@@ -134,8 +134,12 @@ public sealed class LanguageManager : INotifyPropertyChanged
         _culture = culture ?? CultureInfo.InvariantCulture;
         try
         {
+            CultureInfo.CurrentCulture = _culture;
             CultureInfo.CurrentUICulture = _culture;
+            CultureInfo.DefaultThreadCurrentCulture = _culture;
             CultureInfo.DefaultThreadCurrentUICulture = _culture;
+            if (Application.Current?.MainWindow is FrameworkElement window)
+                window.Language = XmlLanguage.GetLanguage(_culture.IetfLanguageTag);
         }
         catch
         {
@@ -147,23 +151,76 @@ public sealed class LanguageManager : INotifyPropertyChanged
         Changed?.Invoke();
     }
 
+    /// <summary>Sprachen in der Einstellungs-Liste, jeweils mit dem Namen in der eigenen Sprache.</summary>
+    public static IReadOnlyList<(string Code, string NativeName)> Choices { get; } =
+    [
+        ("en", "English"),
+        ("de", "Deutsch"),
+        ("fr", "Français"),
+        ("es", "Español"),
+        ("it", "Italiano"),
+        ("pt", "Português"),
+        ("nl", "Nederlands"),
+        ("pl", "Polski"),
+        ("sv", "Svenska"),
+        ("da", "Dansk"),
+        ("nb", "Norsk"),
+        ("fi", "Suomi"),
+        ("cs", "Čeština"),
+        ("sk", "Slovenčina"),
+        ("hu", "Magyar"),
+        ("ro", "Română"),
+        ("bg", "Български"),
+        ("el", "Ελληνικά"),
+        ("hr", "Hrvatski"),
+        ("sl", "Slovenščina"),
+        ("uk", "Українська"),
+        ("ru", "Русский"),
+        ("tr", "Türkçe"),
+        ("zh-Hans", "中文"),
+        ("ja", "日本語"),
+        ("ko", "한국어"),
+    ];
+
+    public static bool IsSupported(string? code) => Canonical(code) is { } found && found.Length > 0;
+
+    public static string? Canonical(string? code)
+    {
+        if (string.IsNullOrWhiteSpace(code))
+            return null;
+
+        var key = code.Trim().Replace('_', '-');
+        if (key.Equals("auto", StringComparison.OrdinalIgnoreCase) || key.Equals("system", StringComparison.OrdinalIgnoreCase))
+            return "auto";
+        if (key.StartsWith("zh", StringComparison.OrdinalIgnoreCase))
+            return "zh-Hans";
+        if (key.StartsWith("pt", StringComparison.OrdinalIgnoreCase))
+            return "pt";
+        if (key.StartsWith("nb", StringComparison.OrdinalIgnoreCase)
+            || key.StartsWith("nn", StringComparison.OrdinalIgnoreCase)
+            || key.StartsWith("no", StringComparison.OrdinalIgnoreCase))
+            return "nb";
+
+        var two = key.Length >= 2 ? key[..2] : key;
+        foreach (var (choice, _) in Choices)
+        {
+            if (choice.Equals(key, StringComparison.OrdinalIgnoreCase) || choice.Equals(two, StringComparison.OrdinalIgnoreCase))
+                return choice;
+        }
+
+        return null;
+    }
+
     public static CultureInfo Resolve(string? preference) => SafeResolve(preference);
 
     private static CultureInfo SafeResolve(string? preference)
     {
         try
         {
-            var key = (preference ?? "auto").Trim().ToLowerInvariant();
-            if (key is "en" or "english")
-                return CultureOrEnglish("en");
-            if (key is "de" or "deutsch" or "german")
-                return CultureOrEnglish("de");
-
-            var ui = SystemUi ?? CultureInfo.InvariantCulture;
-            var name = ui.TwoLetterISOLanguageName;
-            return string.Equals(name, "de", StringComparison.OrdinalIgnoreCase)
-                ? CultureOrEnglish("de")
-                : CultureOrEnglish("en");
+            var key = Canonical(preference);
+            if (key is null or "auto")
+                key = MatchSystem();
+            return CultureOrInvariant(key);
         }
         catch (Exception ex) when (ex is NullReferenceException or CultureNotFoundException)
         {
@@ -175,7 +232,17 @@ public sealed class LanguageManager : INotifyPropertyChanged
         }
     }
 
-    private static CultureInfo CultureOrEnglish(string name)
+    private static string MatchSystem()
+    {
+        var ui = SystemUi ?? CultureInfo.InvariantCulture;
+        return Canonical(ui.Name) is { } full && full != "auto"
+            ? full
+            : Canonical(ui.TwoLetterISOLanguageName) is { } two && two != "auto"
+                ? two
+                : "en";
+    }
+
+    private static CultureInfo CultureOrInvariant(string name)
     {
         try
         {
@@ -203,7 +270,7 @@ public sealed class LanguageManager : INotifyPropertyChanged
     {
         try
         {
-            return new ResourceManager("MangaLibraryApp.Resources.Strings", typeof(LanguageManager).Assembly);
+            return new ResourceManager("NekoDex.Resources.Strings", typeof(LanguageManager).Assembly);
         }
         catch
         {

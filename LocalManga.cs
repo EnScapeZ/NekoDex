@@ -1,7 +1,7 @@
 using System.IO;
 using System.Windows.Media;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>Ein lokal gespeicherter Titel inklusive Favorit und Lesefortschritt.</summary>
 public sealed class LocalManga : ObservableObject
@@ -97,8 +97,8 @@ public sealed class LocalManga : ObservableObject
 
     public string StatusText => ReadingStatus switch
     {
-        ReadingStatus.Reading => "Am Lesen",
-        ReadingStatus.Completed => "Abgeschlossen",
+        ReadingStatus.Reading => LanguageManager.Instance.Get("Lib_Reading"),
+        ReadingStatus.Completed => LanguageManager.Instance.Get("Lib_Done"),
         _ => string.Empty,
     };
 
@@ -107,16 +107,18 @@ public sealed class LocalManga : ObservableObject
         get
         {
             var pages = PageCountText;
-            var status = ReadingStatus switch
-            {
-                ReadingStatus.Reading => "Am Lesen",
-                ReadingStatus.Completed => "Abgeschlossen",
-                _ => string.Empty,
-            };
+            var status = StatusText;
             if (pages.Length == 0)
                 return status;
             return status.Length == 0 ? pages : pages + " · " + status;
         }
+    }
+
+    public void RefreshLanguage()
+    {
+        OnPropertyChanged(nameof(StatusText));
+        OnPropertyChanged(nameof(FooterText));
+        OnPropertyChanged(nameof(PageCountText));
     }
     public DateTime DateAdded { get; set; } = DateTime.UtcNow;
     public DateTime? LastOpened { get; set; }
@@ -141,8 +143,8 @@ public sealed class LocalManga : ObservableObject
     public string PageCountText => PageCount switch
     {
         <= 0 => string.Empty,
-        1 => "1 Seite",
-        _ => PageCount + " Seiten",
+        1 => LanguageManager.Instance.Get("Lib_PageOne"),
+        _ => LanguageManager.Instance.Get("Lib_PageMany", PageCount),
     };
 
     public static LocalManga From(Manga manga) => new()

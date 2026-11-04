@@ -1,4 +1,4 @@
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>
 /// E-Hentai-Suchbegriffe. Leerzeichen werden Unterstriche.

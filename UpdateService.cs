@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text.Json;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 public sealed class UpdateNotice
 {

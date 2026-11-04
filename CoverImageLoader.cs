@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace MangaLibraryApp;
+namespace NekoDex;
 
 /// <summary>
 /// Lädt Kachel-Cover mit Chrome-User-Agent und seitenrichtigem Referer.
